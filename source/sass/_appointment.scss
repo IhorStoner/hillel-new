@@ -1,0 +1,91 @@
+.appointment {
+    padding: 65px 0;
+    background-image: url(../assets/img/png/bg-form.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.appointment-form {
+    max-width: 855px;
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 65px 125px;
+
+    &__title {
+        margin-bottom: 30px;
+    }
+
+    &__sub-text {
+        margin-bottom: 65px;
+    }
+
+    &__btn {
+        text-align: center;
+    }
+
+    &__text {
+        max-width: 380px;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    // &__date-time {
+    //     // max-width: 50%
+    //     // // margin-top: 20px;
+    // }
+
+    // &__data {
+    //     // display: flex;
+
+    // }
+
+    // &__flex {
+    //     // display: flex;
+    //     // justify-content: flex-start;
+    //     // width: 100%;
+    // }
+
+    &__name {
+        position: relative;
+        padding-top: 25px;
+    }
+
+    &__container {
+        width: 45%;
+        position: relative;
+        padding-top: 25px;
+        margin-right: 9%;
+        display: inline-block;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &__label {
+        position: absolute;
+        top: 0;
+        left: 15px;
+    }
+}
+
+@media (max-width: 769px) {
+    .appointment-form {
+        max-width: 685px;
+    }
+}
+
+@media (max-width: 645px) {
+    .appointment-form {
+        &__container {
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    .appointment-form {
+        padding: 45px ;
+
+    }
+}

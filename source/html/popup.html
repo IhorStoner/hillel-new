@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>popup</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700,800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="popup-section">
+        <form action="" method="GET" class="popup">
+            <div class="appointment-form__text popup__text">
+                <h2 class="title--black appointment-form__title">
+                    Contact us!
+                </h2>
+                <p class="appointment-form__sub-text popup__sub-text">
+                    please leave your details and our manager will contact you within an hour.
+                </p>
+            </div>    
+            <div class="appointment-form__data">
+                <div class="appointment-form__name popup__container">
+                    <label for="name" class="appointment-form__label popup__label" >Name:</label>
+                    <input class="input-text input-text--margin popup__input" id="name" name="name" type="text" placeholder="Gregory Simmmons">
+                </div>
+                <div class="appointment-form__name popup__container">
+                    <label for="email" class="appointment-form__label popup__label" >Email:</label>
+                    <input class="input-text input-text--margin popup__input" id="email" name="email" type="email" placeholder="dwight.fleming@example.com">
+                </div>
+                <div class="appointment-form__name popup__container">
+                    <label for="phone" class="appointment-form__label popup__label" >Phone:</label>
+                    <input class="input-text input-text--margin popup__input" id="phone" name="phone" type="tel" placeholder="(307) 555-0133">
+                </div>
+                <div class="popup__comment-container">
+                    <label for="comment" class="appointment-form__label popup__comment-label" >Your comment:</label>
+                    <textarea class="popup__comment" name="comment" id="comment" placeholder="Please leave your comment..." cols="72" rows="5"></textarea>
+                </div>
+            </div>
+            <div class="appointment-form__btn">
+                <button type="submit" class="btn btn--orange">contact me</button>
+            </div> 
+            </div>
+        </form>
+    </section>
+</body>
+</html>

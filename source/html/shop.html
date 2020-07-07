@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700,800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="wrapper">
+            <div class="header__content">
+                <!-- <h1 class="header__logo"> -->
+                    <a href="" class="logo header__logo">
+                        <img src="../assets/img/png/logo.png" alt="" class="logo__img">
+                    </a>
+                <!-- </h1> -->
+                <button class="header__nav-open">
+                </button>
+                <nav class="nav">
+                    <a href="index.html" class="nav__link nav__link--active">Home</a>
+                    <a href="shop.html" class="nav__link">Shop</a>
+                    <a href="gallery.html" class="nav__link">Gallery</a>
+                </nav>
+                <div class="connection">
+                    <div class="basket">
+                        <button class="basket__btn basket__btn--margin"></button>
+                        <span class="basket__counter">0</span>
+                    </div>
+                    <button class="connection__btn btn">contact us</button>
+                    <button class="connection__btn btn btn--orange">book now</button>
+                </div>
+            </div>     
+        </div>
+    </header>
+    <section class="shop-offer">
+        <div class="wrapper">
+            <div class="shop-offer__slider">
+                <button class="slider-btn--prev slider-btn slider-btn--transparent shop-offer__btn">
+                </button>
+                <button class="slider-btn--next slider-btn slider-btn--transparent shop-offer__btn">
+                </button>
+                <div class="shop-offer__content">
+                    <!-- <h2 class="shop-offer__item">
+                        - 50 %
+                    </h2>
+                    <h2 class="shop-offer__item shop-offer__item--sub-text">
+                        brandy sale
+                    </h2> -->
+                    <div class="shop-offer__img-container">
+                        <img class="shop-offer__img" src="../assets/img/png/slider-item.png" alt="">
+                        <img class="shop-offer__img" src="../assets/img/png/brandy-sale.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="shop">
+        <div class="wrapper">
+            <div class="shop__content">
+                <div class="shop__search-container">
+                    <input class="shop__search-item" type="text" placeholder="Search something you need...">
+                    <button class="btn btn--orange shop__search-btn">search</button>
+                </div>
+                <div class="shop__flex-container">
+                    <aside class="filters">
+                        <div class="filters__header">
+                            <h2 class="shop__title">
+                                Filters
+                            </h2>
+                            <button class="filters__open-btn">
+                            </button>
+                        </div>
+                        <div class="filters__content">
+                            <div class="filters__block">
+                                <button class="filters__btn">Choose something</button>
+                                <div class="choose-service__item filters__item">
+                                    <input class="choose-service__input" type="checkbox" id="service-1" name="service-1">
+                                    <label for="service-1" class="choose-service__checkbox"></label>
+                                    <label for="service-1" class="choose-master__text">Choose something</label>
+                                </div>
+                                <div class="choose-service__item filters__item">
+                                    <input class="choose-service__input" type="checkbox" id="service-2" name="service-2">
+                                    <label for="service-2" class="choose-service__checkbox"></label>
+                                    <label for="service-2" class="choose-master__text">Choose something</label>
+                                </div>
+                                <div class="choose-service__item filters__item">
+                                    <input class="choose-service__input" type="checkbox" id="service-3" name="service-3">
+                                    <label for="service-3" class="choose-service__checkbox"></label>
+                                    <label for="service-3" class="choose-master__text">Choose something</label>
+                                </div>
+                                <div class="choose-service__item filters__item">
+                                    <input class="choose-service__input" type="checkbox" id="service-4" name="service-4">
+                                    <label for="service-4" class="choose-service__checkbox"></label>
+                                    <label for="service-4" class="choose-master__text">Choose something</label>
+                                </div>
+                                <div class="choose-service__item filters__item">
+                                    <input class="choose-service__input" type="checkbox" id="service-5" name="service-5">
+                                    <label for="service-5" class="choose-service__checkbox"></label>
+                                    <label for="service-5" class="choose-master__text">Choose something</label>
+                                </div>
+                            </div>
+                            <div class="filters__block">
+                                <button class="filters__btn">Choose something</button>
+                                <div class="choose-master__item">
+                                    <input type="radio" class="choose-master__radio" name="choose-master__item" id="master-1" value="1">
+                                    <label for="master-1" class="choose-master__label"></label>
+                                    <label for="master-1" class="choose-master__text">Choose something</label>
+                                </div>
+                                <div class="choose-master__item">
+                                    <input type="radio" class="choose-master__radio" name="choose-master__item" id="master-2" value="2">
+                                    <label for="master-2" class="choose-master__label"></label>
+                                    <label for="master-2" class="choose-master__text">Choose something</label>
+                                </div>
+                                <div class="choose-master__item">
+                                    <input type="radio" class="choose-master__radio" name="choose-master__item" id="master-3" value="3">
+                                    <label for="master-3" class="choose-master__label"></label>
+                                    <label for="master-3" class="choose-master__text">Choose something</label>
+                                </div>
+                                <div class="choose-master__item">
+                                    <input type="radio" class="choose-master__radio" name="choose-master__item" id="master-4" value="4">
+                                    <label for="master-4" class="choose-master__label"></label>
+                                    <label for="master-4" class="choose-master__text">Choose something</label>
+                                </div>
+                                <div class="choose-master__item">
+                                    <input type="radio" class="choose-master__radio" name="choose-master__item" id="master-5" value="5">
+                                    <label for="master-5" class="choose-master__label"></label>
+                                    <label for="master-5" class="choose-master__text">Choose something</label>
+                                </div>
+                            </div>
+                            <div class="filters__block">
+                                <button class="filters__btn">
+                                    Choose something
+                                </button>
+                                <div class="filters__price price">
+                                    <div class="price__slider">
+                                        <button class="price__btn price__btn--from">
+                                            <span class="price__text ">60</span>
+                                        </button>
+                                        <span class="price__line">
+                                        </span>
+                                        <button class="price__btn price__btn--to">
+                                            <span class="price__text ">800</span>
+                                        </button>
+                                    </div>
+                                    <div class="price__block">
+                                        <div class="price__from">
+                                            <span class="price__sub-text">From:</span>
+                                            <input class="price__input" type="text" value="60">
+                                        </div>
+                                        <div class="price__to">
+                                            <span class="price__sub-text">To:</span>
+                                            <input class="price__input" type="text" value="800">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filters__btn-submit">
+                                <button class="btn btn--black">SHOW</button>
+                            </div>   
+                        </div>
+                    </aside>
+                    <div class="shop__cards">
+                        <div class="product">
+                            <div class="product__img-container">
+                                 <img src="../assets/img/png/product.png" alt="" class="product__img">
+                            </div>
+                            <div class="product__content">
+                                 <h3 class="product__title">
+                                     Barbers
+                                 </h3>
+                                 <p class="product__text">Premium beard balm</p>
+                                 <p class="product__text">50 ml</p>
+                                 <p class="product__text">new york original</p>
+                                 <p class="product__price">
+                                     $ 490.00
+                                 </p>
+                                 <div class="product__buttons">
+                                     <button class="btn btn--black">Shop now</button>
+                                     <button class="btn btn--plus"></button>
+                                 </div>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <div class="product__img-container">
+                                 <img src="../assets/img/png/product.png" alt="" class="product__img">
+                            </div>
+                            <div class="product__content">
+                                 <h3 class="product__title">
+                                     Barbers
+                                 </h3>
+                                 <p class="product__text">Premium beard balm</p>
+                                 <p class="product__text">50 ml</p>
+                                 <p class="product__text">new york original</p>
+                                 <p class="product__price">
+                                     $ 490.00
+                                 </p>
+                                 <div class="product__buttons">
+                                     <button class="btn btn--black">Shop now</button>
+                                     <button class="btn btn--plus"></button>
+                                 </div>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <div class="product__img-container">
+                                 <img src="../assets/img/png/product.png" alt="" class="product__img">
+                            </div>
+                            <div class="product__content">
+                                 <h3 class="product__title">
+                                     Barbers
+                                 </h3>
+                                 <p class="product__text">Premium beard balm</p>
+                                 <p class="product__text">50 ml</p>
+                                 <p class="product__text">new york original</p>
+                                 <p class="product__price">
+                                     $ 490.00
+                                 </p>
+                                 <div class="product__buttons">
+                                     <button class="btn btn--black">Shop now</button>
+                                     <button class="btn btn--plus"></button>
+                                 </div>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <div class="product__img-container">
+                                 <img src="../assets/img/png/product.png" alt="" class="product__img">
+                            </div>
+                            <div class="product__content">
+                                 <h3 class="product__title">
+                                     Barbers
+                                 </h3>
+                                 <p class="product__text">Premium beard balm</p>
+                                 <p class="product__text">50 ml</p>
+                                 <p class="product__text">new york original</p>
+                                 <p class="product__price">
+                                     $ 490.00
+                                 </p>
+                                 <div class="product__buttons">
+                                     <button class="btn btn--black">Shop now</button>
+                                     <button class="btn btn--plus"></button>
+                                 </div>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <div class="product__img-container">
+                                 <img src="../assets/img/png/product.png" alt="" class="product__img">
+                            </div>
+                            <div class="product__content">
+                                 <h3 class="product__title">
+                                     Barbers
+                                 </h3>
+                                 <p class="product__text">Premium beard balm</p>
+                                 <p class="product__text">50 ml</p>
+                                 <p class="product__text">new york original</p>
+                                 <p class="product__price">
+                                     $ 490.00
+                                 </p>
+                                 <div class="product__buttons">
+                                     <button class="btn btn--black">Shop now</button>
+                                     <button class="btn btn--plus"></button>
+                                 </div>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <span class="product__sale">Sale</span>
+                            <div class="product__img-container">
+                                 <img src="../assets/img/png/product.png" alt="" class="product__img">
+                            </div>
+                            <div class="product__content">
+                                 <h3 class="product__title">
+                                     Barbers
+                                 </h3>
+                                 <p class="product__text">Premium beard balm</p>
+                                 <p class="product__text">50 ml</p>
+                                 <p class="product__text">new york original</p>
+                                 <p class="product__price">
+                                     $ 490.00
+                                 </p>
+                                 <div class="product__buttons">
+                                     <button class="btn btn--black">Shop now</button>
+                                     <button class="btn btn--plus"></button>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="popular-products">
+        <div class="wrapper">
+            <h1 class="title title--point popular-products__title">
+                Popular  products
+            </h1>
+           <div class="popular-products__content">
+               <div class="product">
+                    <span class="product__sale">Sale</span>
+                   <div class="product__img-container">
+                        <img src="../assets/img/png/product.png" alt="" class="product__img">
+                   </div>
+                   <div class="product__content">
+                        <h3 class="product__title">
+                            Barbers
+                        </h3>
+                        <p class="product__text">Premium beard balm</p>
+                        <p class="product__text">50 ml</p>
+                        <p class="product__text">new york original</p>
+                        <p class="product__price">
+                            $ 490.00
+                        </p>
+                        <div class="product__buttons">
+                            <button class="btn btn--black">Shop now</button>
+                            <button class="btn btn--plus"></button>
+                        </div>
+                   </div>
+               </div>
+               <div class="product">
+                <div class="product__img-container">
+                     <img src="../assets/img/png/product.png" alt="" class="product__img">
+                </div>
+                <div class="product__content">
+                     <h3 class="product__title">
+                         Barbers
+                     </h3>
+                     <p class="product__text">Premium beard balm</p>
+                     <p class="product__text">50 ml</p>
+                     <p class="product__text">new york original</p>
+                     <p class="product__price">
+                         $ 490.00
+                     </p>
+                     <div class="product__buttons">
+                         <button class="btn btn--black">Shop now</button>
+                         <button class="btn btn--plus"></button>
+                     </div>
+                </div>
+            </div>
+            <div class="product">
+                <span class="product__sale">Sale</span>
+                <div class="product__img-container">
+                     <img src="../assets/img/png/product.png" alt="" class="product__img">
+                </div>
+                <div class="product__content">
+                     <h3 class="product__title">
+                         Barbers
+                     </h3>
+                     <p class="product__text">Premium beard balm</p>
+                     <p class="product__text">50 ml</p>
+                     <p class="product__text">new york original</p>
+                     <p class="product__price">
+                         $ 490.00
+                     </p>
+                     <div class="product__buttons">
+                         <button class="btn btn--black">Shop now</button>
+                         <button class="btn btn--plus"></button>
+                     </div>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product__img-container">
+                     <img src="../assets/img/png/product.png" alt="" class="product__img">
+                </div>
+                <div class="product__content">
+                     <h3 class="product__title">
+                         Barbers
+                     </h3>
+                     <p class="product__text">Premium beard balm</p>
+                     <p class="product__text">50 ml</p>
+                     <p class="product__text">new york original</p>
+                     <p class="product__price">
+                         $ 490.00
+                     </p>
+                     <div class="product__buttons">
+                         <button class="btn btn--black">Shop now</button>
+                         <button class="btn btn--plus"></button>
+                     </div>
+                </div>
+            </div>
+           </div> 
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="wrapper">
+            <div class="footer__container">
+                <div class="footer__content">
+                    <a href="" class="logo footer__logo">
+                        <img src="../assets/img/png/logo.png" alt="" class="logo__img">
+                    </a>
+                </div>
+                <div class="footer__info">
+                    <nav class="nav footer__nav footer__item">
+                        <a href="index.html" class="nav__link nav__link--active footer__link">Home</a>
+                        <a href="shop.html" class="nav__link footer__link">Shop</a>
+                        <a href="gallery.html" class="nav__link footer__link">Gallery</a>
+                        <a href="contact-us.html" class="nav__link footer__link">Contact Us</a>
+                    </nav>
+                    <div class="footer__contact-us footer__item">
+                        <h3 class="footer__title">
+                            Contact us
+                        </h3>
+                        <a class="contact-us__text footer__text" href="mail:support@gmail.com">
+                            support@gmail.com
+                        </a>
+                        <a class="contact-us__text footer__text" href="tel:+38044152566954">
+                            +38 (044) 15 25 66 954
+                        </a>
+                    </div>
+                    <div class="footer__visit-us footer__item">
+                        <h3 class="footer__title">
+                            Visit us
+                        </h3>
+                        <p class="contact-us__text footer__text">
+                            Ukraine, Kyiv 
+                        </p>
+                        <p class="contact-us__text footer__text">
+                            str. Oleshi 15, 62000
+                        </p>
+                    </div>
+                    <div class="footer__follow-us footer__item">
+                        <h3 class="footer__title">
+                            Follow us
+                        </h3>
+                        <div class="contact-us__links footer__links">
+                            <a href="" class="contact-us__link footer__link--instagram"></a>
+                            <a href="" class="contact-us__link footer__link--youtube"></a>
+                            <a href="" class="contact-us__link footer__link--facebook"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

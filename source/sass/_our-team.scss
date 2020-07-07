@@ -1,0 +1,143 @@
+.our-team {
+    padding: 60px 0;
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        flex-wrap: wrap;
+    }
+
+    &__text {
+        max-width: 33%;
+    }
+
+    &__title-container {
+        text-align: right;
+        margin-bottom: 15px;
+    }
+}
+
+.our-team-slider {
+    max-width: 67%;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    padding-right: 70px;
+
+    &__img {
+
+        &--active {
+            width: 197px;
+            height: 293px;
+            // position: relative;
+
+            // &::before {
+            //     content: "";
+            //     width: 198px;
+            //     height: 325px;
+            //     display: block;
+            //     background-color: #FF7A00;
+            //     position: absolute;
+            //     top: 0;
+            //     left: 0;
+            // }
+        }
+    }
+
+    &__item {
+        margin-right: 8px;
+        display: flex;
+        align-items: flex-end;
+
+        &--active{
+            position: relative;
+            margin-right: 24px;
+
+            &::before {
+                content: "";
+                width: 198px;
+                height: 325px;
+                display: block;
+                background-color: #FF7A00;
+                position: absolute;
+                top: -16px;
+                left: 16px;
+                z-index: -1;
+            }
+        }
+    }
+
+    &__btn {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+@media (max-width: 1099px) {
+    .our-team {
+        &__text {
+            display: block;
+            max-width: 50%;
+            margin: 0 auto;
+        }
+
+        &__content {
+            max-width: 100%;
+        }
+    }
+
+    .our-team-slider {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 753px) {
+    .our-team-slider {
+        margin-bottom: 30px;
+
+        &__img {
+            &--active {
+                height: 100%;
+            }
+        }
+
+        &__item {
+
+            &--active {
+                height: auto;
+                &::before {
+                    width: 100%;
+                    height: 116%;
+                }
+            }
+
+            & img {
+                width: 100%;
+
+            }
+
+        }
+
+        &:last-child {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 320px) {
+    .our-team-slider {
+        &__item:not(.our-team-slider__item--active) {
+            display: none;
+        }     
+    }
+
+    .our-team {
+        &__text {
+            display: block;
+            max-width: 100%;
+        }
+    }
+}
