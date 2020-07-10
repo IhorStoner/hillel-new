@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barber Hillel</title>
+    <title>Shop</title>
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700,800&display=swap" rel="stylesheet">
 </head>
@@ -19,9 +19,12 @@
                 <button class="header__nav-open">
                 </button>
                 <nav class="nav">
-                    <a href="index.html" class="nav__link nav__link--active">Home</a>
-                    <a href="shop.html" class="nav__link">Shop</a>
-                    <a href="gallery.html" class="nav__link">Gallery</a>
+                    <a href="#" class="nav__link nav__link--active">Бритвы и лезвия</a>
+                    <a href="#" class="nav__link">Косметика для бритья</a>
+                    <a href="#" class="nav__link">Помазки и аксессуары</a>
+                    <a href="#" class="nav__link">Для волос и бороды</a>
+                    <a href="#" class="nav__link">Для лица и тела</a>
+                    <a href="#" class="nav__link">Идеи подарков</a>
                 </nav>
                 <div class="connection">
                     <div class="basket">
@@ -34,228 +37,259 @@
             </div>     
         </div>
     </header>
-    <section class="barber-shop">
+    <section class="shop-offer">
         <div class="wrapper">
-            <div class="barber-content">
-                <img class="barber-content__img" src="../assets/img/png/section-logo.png" alt="logo">
-                <img class="barber-content__img-769px" src="../assets/img/png/logo769.png" alt="">
-                <img class="barber-content__img-320px" src="../assets/img/png/logo320px.png" alt="">
-                <p class="barber-content__text">
-                    Our barbershop  is a place of style and mutual understanding in which it is pleasant to spend time.
-                </p>
-                <button class="btn btn--orange barber-shop__btn">Book now</button>
-            </div>
-        </div>
-    </section>
-    <section class="our-services">
-        <!-- <div class="wrapper"> -->
-            <div class="our-services__content">
-                <div class="our-services__title-container">
-                    <h2 class="title title--point our-services__title">
-                        Our services
+            <div class="shop-offer__slider">
+                <button class="slider-btn--prev slider-btn slider-btn--transparent shop-offer__btn">
+                </button>
+                <button class="slider-btn--next slider-btn slider-btn--transparent shop-offer__btn">
+                </button>
+                <div class="shop-offer__content">
+                    <!-- <h2 class="shop-offer__item">
+                        - 50 %
                     </h2>
-                </div>
-                <div class="services">
-                    <div class="wrapper services__content">
-                        <!-- Из-за маржин-райт сьезжает сетка -->
-                        <div class="services__card services__card--scissors">  
-                            <h2>
-                                Men's haircut
-                            </h2>
-                            <p class="services__text">
-                                60 min.
-                            </p>
-                            <p class="services__text services__text--bold">
-                                350 / 400 / 450 ₴
-                            </p>
-                        </div>
-                        <div class="services__card services__card--clipper">
-                            <h2>
-                                Men's haircut
-                            </h2>
-                            <p class="services__text">
-                                60 min.
-                            </p>
-                            <p class="services__text services__text--bold">
-                                350 / 400 / 450 ₴
-                            </p>
-                        </div>
-                        <div class="services__card services__card--dryer">
-                            <h2>
-                                Men's haircut
-                            </h2>
-                            <p class="services__text">
-                                60 min.
-                            </p>
-                            <p class="services__text services__text--bold">
-                                350 / 400 / 450 ₴
-                            </p>
-                        </div>
-                        <div class="services__card services__card--bottle">
-                            <h2>
-                                Men's haircut
-                            </h2>
-                            <p class="services__text">
-                                60 min.
-                            </p>
-                            <p class="services__text services__text--bold">
-                                350 / 400 / 450 ₴
-                            </p>
-                        </div>
-                        <div class="services__card services__card--brush">
-                            <h2>
-                                Men's haircut
-                            </h2>
-                            <p class="services__text">
-                                60 min.
-                            </p>
-                            <p class="services__text services__text--bold">
-                                350 / 400 / 450 ₴
-                            </p>
-                        </div>
-                        <div class="services__card services__card--blade">
-                            <h2>
-                                Men's haircut
-                            </h2>
-                            <p class="services__text">
-                                60 min.
-                            </p>
-                            <p class="services__text services__text--bold">
-                                350 / 400 / 450 ₴
-                            </p>
-                        </div>
+                    <h2 class="shop-offer__item shop-offer__item--sub-text">
+                        brandy sale
+                    </h2> -->
+                    <div class="shop-offer__img-container">
+                        <img class="shop-offer__img" src="../assets/img/png/slider-item.png" alt="">
+                        <img class="shop-offer__img" src="../assets/img/png/brandy-sale.png" alt="">
                     </div>
-                </div>
-            </div>
-        <!-- </div> -->
-    </section>
-    <section class="our-team">
-        <div class="wrapper">
-            <div class="our-team__title-container">
-                <h2 class="title title--point">
-                    Our  team
-                </h2>
-            </div>
-            <div class="our-team__content">
-                <div class="our-team-slider">
-                    <div class="our-team-slider__item">
-                        <img src="../assets/img/png/slider-1.png" alt="">
-                    </div>
-                    <div class="our-team-slider__item our-team-slider__item--active">
-                        <img class="our-team-slider__img--active" src="../assets/img/png/slider-2.png" alt="" width="134" height="200">
-                    </div>
-                    <div class="our-team-slider__item">
-                        <img src="../assets/img/png/slider-3.png" alt="">
-                    </div>
-                    <div class="our-team-slider__item">
-                        <img src="../assets/img/png/slider-4.png" alt="">
-                    </div>
-                    <button class="our-team-slider__btn slider-btn slider-btn--next"></button>
-                </div>
-                <div class="our-team__text">
-
-                    <h2 class="title title--small">
-                        Jorge Jones
-                    </h2>
-                    <p>
-                        - How did you become a barber? <br>
-                        - I decided to master the creative profession. And he found himself precisely in this. So my life has changed dramatically.<br>
-                        - What exactly do you like in your profession? Why are you blissing?<br>
-                        - I like to work in a men's team, communicating with interesting people.<br>
-                        - Why should a person who wants a haircut choose you?<br>
-                        - Because I'm old and charismatic.<br>
-                    </p>
                 </div>
             </div>
         </div>
     </section>
-    <section class="appointment">
-        <form action="https://fom.in.ua/echo" class="appointment-form" method="GET" >
-            <div class="appointment-form__text">
-                <h2 class="title title--black appointment-form__title">
-                    Book an appointment right now!
-                </h2>
-                <p class="appointment-form__sub-text">
-                    please Complete all these fields.
-                </p>
-            </div>
-            <div class="appointment-form__data">
-                <div class="appointment-form__name ">
-                    <label for="name" class="appointment-form__label" >Name:</label>
-                    <input class="input-text input-text--margin" id="name" name="name" type="text" placeholder="Gregory Simmmons">
+    <section class="shop">
+        <div class="wrapper">
+            <div class="shop__content">
+                <div class="shop__search-container">
+                    <input class="shop__search-item" type="text" placeholder="Search something you need...">
+                    <button class="btn btn--orange shop__search-btn">search</button>
                 </div>
-                <div class="appiontment-form__flex">
-                    <div class="appointment-form__container">
-                        <label for="name" class="appointment-form__label">Date:</label>
-                        <input class="input-text appointment-form__date-time input-text--margin" type="date" name="date">
+                <div class="shop__flex-container">
+                    <aside class="filters">
+                        <div class="filters__header">
+                            <h2 class="shop__title">
+                                Filters
+                            </h2>
+                            <button class="filters__open-btn">
+                            </button>
+                        </div>
+                        <div class="filters__content">
+                            <div class="filters__block">
+                                <button class="filters__btn">Choose something</button>
+                                <div class="choose-service__item filters__item">
+                                    <input class="choose-service__input" type="checkbox" id="service-1" name="service-1">
+                                    <label for="service-1" class="choose-service__checkbox"></label>
+                                    <label for="service-1" class="choose-master__text">Choose something</label>
+                                </div>
+                                <div class="choose-service__item filters__item">
+                                    <input class="choose-service__input" type="checkbox" id="service-2" name="service-2">
+                                    <label for="service-2" class="choose-service__checkbox"></label>
+                                    <label for="service-2" class="choose-master__text">Choose something</label>
+                                </div>
+                                <div class="choose-service__item filters__item">
+                                    <input class="choose-service__input" type="checkbox" id="service-3" name="service-3">
+                                    <label for="service-3" class="choose-service__checkbox"></label>
+                                    <label for="service-3" class="choose-master__text">Choose something</label>
+                                </div>
+                                <div class="choose-service__item filters__item">
+                                    <input class="choose-service__input" type="checkbox" id="service-4" name="service-4">
+                                    <label for="service-4" class="choose-service__checkbox"></label>
+                                    <label for="service-4" class="choose-master__text">Choose something</label>
+                                </div>
+                                <div class="choose-service__item filters__item">
+                                    <input class="choose-service__input" type="checkbox" id="service-5" name="service-5">
+                                    <label for="service-5" class="choose-service__checkbox"></label>
+                                    <label for="service-5" class="choose-master__text">Choose something</label>
+                                </div>
+                            </div>
+                            <div class="filters__block">
+                                <button class="filters__btn">Choose something</button>
+                                <div class="choose-master__item">
+                                    <input type="radio" class="choose-master__radio" name="choose-master__item" id="master-1" value="1">
+                                    <label for="master-1" class="choose-master__label"></label>
+                                    <label for="master-1" class="choose-master__text">Choose something</label>
+                                </div>
+                                <div class="choose-master__item">
+                                    <input type="radio" class="choose-master__radio" name="choose-master__item" id="master-2" value="2">
+                                    <label for="master-2" class="choose-master__label"></label>
+                                    <label for="master-2" class="choose-master__text">Choose something</label>
+                                </div>
+                                <div class="choose-master__item">
+                                    <input type="radio" class="choose-master__radio" name="choose-master__item" id="master-3" value="3">
+                                    <label for="master-3" class="choose-master__label"></label>
+                                    <label for="master-3" class="choose-master__text">Choose something</label>
+                                </div>
+                                <div class="choose-master__item">
+                                    <input type="radio" class="choose-master__radio" name="choose-master__item" id="master-4" value="4">
+                                    <label for="master-4" class="choose-master__label"></label>
+                                    <label for="master-4" class="choose-master__text">Choose something</label>
+                                </div>
+                                <div class="choose-master__item">
+                                    <input type="radio" class="choose-master__radio" name="choose-master__item" id="master-5" value="5">
+                                    <label for="master-5" class="choose-master__label"></label>
+                                    <label for="master-5" class="choose-master__text">Choose something</label>
+                                </div>
+                            </div>
+                            <div class="filters__block">
+                                <button class="filters__btn">
+                                    Choose something
+                                </button>
+                                <div class="filters__price price">
+                                    <div class="price__slider">
+                                        <button class="price__btn price__btn--from">
+                                            <span class="price__text ">60</span>
+                                        </button>
+                                        <span class="price__line">
+                                        </span>
+                                        <button class="price__btn price__btn--to">
+                                            <span class="price__text ">800</span>
+                                        </button>
+                                    </div>
+                                    <div class="price__block">
+                                        <div class="price__from">
+                                            <span class="price__sub-text">From:</span>
+                                            <input class="price__input" type="text" value="60">
+                                        </div>
+                                        <div class="price__to">
+                                            <span class="price__sub-text">To:</span>
+                                            <input class="price__input" type="text" value="800">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filters__btn-submit">
+                                <button class="btn btn--black">SHOW</button>
+                            </div>   
+                        </div>
+                    </aside>
+                    <div class="shop__cards">
+                        <div class="product">
+                            <div class="product__img-container">
+                                 <img src="../assets/img/png/product.png" alt="" class="product__img">
+                            </div>
+                            <div class="product__content">
+                                 <h3 class="product__title">
+                                     Barbers
+                                 </h3>
+                                 <p class="product__text">Premium beard balm</p>
+                                 <p class="product__text">50 ml</p>
+                                 <p class="product__text">new york original</p>
+                                 <p class="product__price">
+                                     $ 490.00
+                                 </p>
+                                 <div class="product__buttons">
+                                     <button class="btn btn--black">Shop now</button>
+                                     <button class="btn btn--plus"></button>
+                                 </div>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <div class="product__img-container">
+                                 <img src="../assets/img/png/product.png" alt="" class="product__img">
+                            </div>
+                            <div class="product__content">
+                                 <h3 class="product__title">
+                                     Barbers
+                                 </h3>
+                                 <p class="product__text">Premium beard balm</p>
+                                 <p class="product__text">50 ml</p>
+                                 <p class="product__text">new york original</p>
+                                 <p class="product__price">
+                                     $ 490.00
+                                 </p>
+                                 <div class="product__buttons">
+                                     <button class="btn btn--black">Shop now</button>
+                                     <button class="btn btn--plus"></button>
+                                 </div>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <div class="product__img-container">
+                                 <img src="../assets/img/png/product.png" alt="" class="product__img">
+                            </div>
+                            <div class="product__content">
+                                 <h3 class="product__title">
+                                     Barbers
+                                 </h3>
+                                 <p class="product__text">Premium beard balm</p>
+                                 <p class="product__text">50 ml</p>
+                                 <p class="product__text">new york original</p>
+                                 <p class="product__price">
+                                     $ 490.00
+                                 </p>
+                                 <div class="product__buttons">
+                                     <button class="btn btn--black">Shop now</button>
+                                     <button class="btn btn--plus"></button>
+                                 </div>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <div class="product__img-container">
+                                 <img src="../assets/img/png/product.png" alt="" class="product__img">
+                            </div>
+                            <div class="product__content">
+                                 <h3 class="product__title">
+                                     Barbers
+                                 </h3>
+                                 <p class="product__text">Premium beard balm</p>
+                                 <p class="product__text">50 ml</p>
+                                 <p class="product__text">new york original</p>
+                                 <p class="product__price">
+                                     $ 490.00
+                                 </p>
+                                 <div class="product__buttons">
+                                     <button class="btn btn--black">Shop now</button>
+                                     <button class="btn btn--plus"></button>
+                                 </div>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <div class="product__img-container">
+                                 <img src="../assets/img/png/product.png" alt="" class="product__img">
+                            </div>
+                            <div class="product__content">
+                                 <h3 class="product__title">
+                                     Barbers
+                                 </h3>
+                                 <p class="product__text">Premium beard balm</p>
+                                 <p class="product__text">50 ml</p>
+                                 <p class="product__text">new york original</p>
+                                 <p class="product__price">
+                                     $ 490.00
+                                 </p>
+                                 <div class="product__buttons">
+                                     <button class="btn btn--black">Shop now</button>
+                                     <button class="btn btn--plus"></button>
+                                 </div>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <span class="product__sale">Sale</span>
+                            <div class="product__img-container">
+                                 <img src="../assets/img/png/product.png" alt="" class="product__img">
+                            </div>
+                            <div class="product__content">
+                                 <h3 class="product__title">
+                                     Barbers
+                                 </h3>
+                                 <p class="product__text">Premium beard balm</p>
+                                 <p class="product__text">50 ml</p>
+                                 <p class="product__text">new york original</p>
+                                 <p class="product__price">
+                                     $ 490.00
+                                 </p>
+                                 <div class="product__buttons">
+                                     <button class="btn btn--black">Shop now</button>
+                                     <button class="btn btn--plus"></button>
+                                 </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="appointment-form__container">
-                        <label for="name" class="appointment-form__label">Time:</label>
-                        <input class="input-text appointment-form__date-time input-text--margin" type="time" name="time">
-                    </div>
                 </div>
             </div>
-            <p>Choose master:</p>
-            <div class="choose-master">
-                <!-- <label for="name" class="appointment-form__label">Choose master:</label> -->
-                <div class="choose-master__item">
-                    <input type="radio" class="choose-master__radio" name="choose-master__item" id="master-1" value="1">
-                    <label for="master-1" class="choose-master__label"></label>
-                    <label for="master-1" class="choose-master__text">Choose something</label>
-                </div>
-                <div class="choose-master__item">
-                    <input type="radio" class="choose-master__radio" name="choose-master__item" id="master-2" value="2">
-                    <label for="master-2" class="choose-master__label"></label>
-                    <label for="master-2" class="choose-master__text">Choose something</label>
-                </div>
-                <div class="choose-master__item">
-                    <input type="radio" class="choose-master__radio" name="choose-master__item" id="master-3" value="3">
-                    <label for="master-3" class="choose-master__label"></label>
-                    <label for="master-3" class="choose-master__text">Choose something</label>
-                </div>
-                <div class="choose-master__item">
-                    <input type="radio" class="choose-master__radio" name="choose-master__item" id="master-4" value="4">
-                    <label for="master-4" class="choose-master__label"></label>
-                    <label for="master-4" class="choose-master__text">Choose something</label>
-                </div>
-            </div>
-            <p>Choose service:</p>
-            <div class="choose-service">
-                <div class="choose-service__item">
-                    <input class="choose-service__input" type="checkbox" id="service-1" name="service-1">
-                    <label for="service-1" class="choose-service__checkbox"></label>
-                    <label for="service-1" class="choose-master__text">Choose something</label>
-                </div>
-                <div class="choose-service__item">
-                    <input class="choose-service__input" type="checkbox" id="service-2" name="service-2">
-                    <label for="service-2" class="choose-service__checkbox"></label> 
-                    <label for="service-2" class="choose-master__text">Choose something</label>
-                </div>
-                <div class="choose-service__item">
-                    <input class="choose-service__input" type="checkbox" id="service-3" name="service-3">
-                    <label for="service-3" class="choose-service__checkbox"></label>
-                    <label for="service-3" class="choose-master__text">Choose something</label>
-                </div>
-                <div class="choose-service__item">
-                    <input class="choose-service__input" type="checkbox" id="service-4" name="service-4">
-                    <label for="service-4" class="choose-service__checkbox"></label>
-                    <label for="service-4" class="choose-master__text">Choose something</label>
-                </div>
-                <div class="choose-service__item">
-                    <input class="choose-service__input" type="checkbox" id="service-5" name="service-5">
-                    <label for="service-5" class="choose-service__checkbox"></label>
-                    <label for="service-5" class="choose-master__text">Choose something</label>
-                </div>
-                <div class="choose-service__item">
-                    <input class="choose-service__input" type="checkbox" id="service-6" name="service-6">
-                    <label for="service-6" class="choose-service__checkbox"></label>
-                    <label for="service-6" class="choose-master__text">Choose something</label>
-                </div>       
-            </div>
-            <div class="appointment-form__btn">
-                <button type="submit" class="btn btn--orange">Book now</button>
-            </div>
-        </form>
+        </div>
     </section>
     <section class="popular-products">
         <div class="wrapper">
@@ -264,6 +298,7 @@
             </h1>
            <div class="popular-products__content">
                <div class="product">
+                    <span class="product__sale">Sale</span>
                    <div class="product__img-container">
                         <img src="../assets/img/png/product.png" alt="" class="product__img">
                    </div>
@@ -345,96 +380,6 @@
                 </div>
             </div>
            </div> 
-        </div>
-    </section>
-    <section class="our-reviews">
-        <div class="wrapper">
-            <h1 class="title title--point our-reviews__title">Our  reviews</h1>
-            <div class="our-reviews__content">
-                <div class="our-team-slider our-reviews__slider">
-                    <div class="our-team-slider__item">
-                        <img src="../assets/img/png/slider-1.png" class="our-reviews__slider-img" alt="">
-                    </div>
-                    <div class="our-team-slider__item our-team-slider__item--active our-reviews__item--active-black ">
-                        <img class="our-team-slider__img--active our-reviews__slider-img our-reviews__slider-img--active" src="../assets/img/png/slider-2.png" alt="" width="134" height="200">
-                    </div>
-                    <div class="our-team-slider__item">
-                        <img class="our-reviews__slider-img" src="../assets/img/png/slider-3.png" alt="">
-                    </div>
-                    <div class="our-team-slider__item">
-                        <img class="our-reviews__slider-img" src="../assets/img/png/slider-4.png" alt="">
-                    </div>
-                    <button class="our-team-slider__btn slider-btn slider-btn--next our-reviews__slider-btn"></button>
-                    <button class="our-team-slider__btn slider-btn  slider-btn--prev our-reviews__slider-btn"></button>
-                </div>
-                <div class="our-team__text our-reviews__text">
-                    <h2 class="title title--small">
-                        Jorge Jones
-                    </h2>
-                    <p class="our-reviews__sub-text">
-                        - How did you become a barber? <br>
-                        - I decided to master the creative profession. And he found himself precisely in this. So my life has changed dramatically.<br>
-                        - What exactly do you like in your profession? Why are you blissing?<br>
-                        - I like to work in a men's team, communicating with interesting people.<br>
-                        - Why should a person who wants a haircut choose you?<br>
-                        - Because I'm old and charismatic.<br>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="contact-us">
-        <div class="wrapper">
-            <div class="contact-us__content">
-                <div class="contact-us__block">
-                    <div class="contact-us__block-content">
-                        <h1 class="contact-us__title title">
-                            Contact us
-                        </h1>
-                        <div class="content-us__info">
-                            <p class="contact-us__text">
-                                Ukraine, Kyiv 
-                            </p>
-                            <p class="contact-us__text">
-                                str. Oleshi 15, 62000
-                            </p>
-                            <a class="contact-us__text" href="mail:support@gmail.com">
-                                support@gmail.com
-                            </a>
-                            <a class="contact-us__text" href="tel:+38044152566954">
-                                +38 (044) 15 25 66 954
-                            </a>
-                            <div class="contact-us__links">
-                                <a href="" class="contact-us__link contact-us__link--instagram"></a>
-                                <a href="" class="contact-us__link contact-us__link--youtube"></a>
-                                <a href="" class="contact-us__link contact-us__link--facebook"></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="contact-us__block-content">
-                        <h1 class="contact-us__title title">
-                            Schedule
-                        </h1>
-                        <div class="content-us__info">
-                            <p class="contact-us__text">
-                                MON - FRI
-                                <span class="contact-us__time">
-                                    10:00 - 20:00
-                                </span>   
-                            </p>
-                            <p class="contact-us__text contact-us__text--margin">
-                                SAT - SUN
-                                <span class="contact-us__time">
-                                    12:00 - 22:00
-                                </span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-us__map">
-                    <img class="contact-us__map-img" src="../assets/img/png/map.png" alt="">
-                </div>
-            </div>
         </div>
     </section>
     <footer class="footer">
