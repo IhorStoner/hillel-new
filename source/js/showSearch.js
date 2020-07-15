@@ -1,7 +1,6 @@
 "use strict";
 
-function showRazorsBlades() {
-    // createElement('data-razorAndBlades','',);
+function showSearch() {
     const parentShop = document.querySelector('.shop-content');
 
     const shopSearchContent = {

@@ -7,13 +7,14 @@ $btn-to: 83px;
     &__title {
         color: #FF7A00;
         margin-bottom: 30px;
+        cursor: default;
+
     }
 
     &__flex-container {
         display: flex;
         justify-content: space-between;
-        align-items: flex-start;
-        
+        align-items: flex-start;   
     }
 
     &__cards {
@@ -91,11 +92,10 @@ $btn-to: 83px;
         height: 25px;
     }
 
-    &__btn {
-        cursor: pointer;
+    &__title {
+        cursor: default;
         background-color: #FFF2E5;
         color: #FF7A00;
-        border: none;
         width: 100%;
         height: 40px;
         font-family: $main-font-family;
@@ -103,9 +103,9 @@ $btn-to: 83px;
         font-weight: bold;
         font-size: 1rem;
         line-height: 1.25rem;
-        text-align: left;
         padding-left: 16px;
-        outline: none;
+        display: flex;
+        align-items: center;
         margin-bottom: 12px;
     }
 
