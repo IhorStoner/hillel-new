@@ -6,6 +6,7 @@ const createElement = function ({
     handlers = {},
     data = [],
     type = "div",
+    forAttr,
     text,
     html,
     className,
@@ -30,6 +31,7 @@ const createElement = function ({
       element.setAttribute(items.key, items.value);
     });
   
+    if (forAttr) element.setAttribute('for', forAttr);
     if (id) element.id = id;
     if (className) element.className = className;
     if (text) element.innerText = text;

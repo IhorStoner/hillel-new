@@ -1,1 +1,5 @@
-showRazorsBlades();
+"use strict";
+
+showSearch();
+showFilter();
+showBasket();
