@@ -1,4 +1,4 @@
-const bladesRazorsData = [
+const dataBladesRazors = [
     {
         id: '0',
         price: '40$',
@@ -9,6 +9,14 @@ const bladesRazorsData = [
     },
     {
         id: '1',
+        price: '35$',
+        brand: 'Moser',
+        name: 'Razor Moser',
+        img: '',
+        description: 'Moser Royal Shaving Razor.'
+    },
+    {
+        id: '2',
         price: '35$',
         brand: 'Moser',
         name: 'Razor Moser',
