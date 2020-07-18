@@ -1,5 +1,8 @@
 "use strict";
 
-showSearch();
-showFilter();
-showBasket();
+// showSearch();
+// showFilter();
+// showBasket();
+
+
+start();
