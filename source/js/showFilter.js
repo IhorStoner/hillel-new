@@ -18,32 +18,36 @@ function getBrandName(arrProduct) {
 //     ));
 // }
 
+// const get = url => fetch(url).then(res => res.json());
+
 function showFilter() {
+    const flexContainerElem = document.querySelector('.shop__flex-container');
+    const firstResponse = document.querySelector(`.header .nav__link`).getAttribute(`data-category`);
+    const navLink = document.querySelectorAll('.header .nav__link');
 
-    const navLink = document.querySelectorAll('.nav__link');
-    navLink.forEach((item) => item.addEventListener('click',() => event.target.getAttribute('dataCategory')
-    ));
+    navLink.forEach(item => item.addEventListener('click',() => {
+        const selectedCategoryName = event.target.getAttribute('data-category');
+        getResource(selectedCategoryName)
+            .then(dataArr => createFilter(dataArr, flexContainerElem));
+    }))
 
-    const parentShop = document.querySelector('.shop-content');
+    // window.addEventListener("DOMContentLoaded", () => {
+    //     getResource(firstResponse)
+    //         .then(data => createFilter(data, flexContainerElem));
+    // });
+}
 
-    // const flexContainer = {
-    //     type: "div",
-    //     className: 'shop__flex-container',
-    //     parent: parentShop,
-    // }
-    // const flexContainerElem = createElement(flexContainer)
-
-    const flexContainerElem = document.querySelector('.shop__flex-container')
-
-    // filter brand name
-    
-    const bladesRazorsBrandArr = getBrandName(dataBladesRazors);
+function createFilter(category, parentElem) {
+    const filterCheck = document.querySelector('.filters');
+    if(filterCheck) {
+        filterCheck.remove();
+    }
 
     const filters = {
         type: "aside",
         className: 'filters',
         id: 'filters',
-        parent: flexContainerElem,
+        parent: parentElem,
     }
     const filtersElem = createElement(filters);
 
@@ -60,7 +64,7 @@ function showFilter() {
         text: 'Filters',
         parent: filtersHeaderElem,
     }
-    const filtersTitleElem = createElement(filtersTitle);
+    createElement(filtersTitle);
 
     const filtersContent = {
         type: "div",
@@ -82,10 +86,12 @@ function showFilter() {
         className: 'filters__title',
         parent: filtersBlockElem,
     }
-    const filtersTitleBlockElem = createElement(filtersBlockTitle);
+    createElement(filtersBlockTitle);
 
     //create checkbox
-    bladesRazorsBrandArr.forEach(function(item) {
+    const unqieBrandNameArr = getBrandName(category);
+
+    unqieBrandNameArr.forEach(function(item) {
         const chooseFilter = {
             type: "div",
             className: 'choose-service__item filters__item',
