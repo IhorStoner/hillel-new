@@ -1,2 +1,3 @@
 # Barber-hillel
-(start server)  json-server --watch data.json 
+(start server) npm start OR json-server --watch data.json 
+Gulp watch(if you change scss to css)
