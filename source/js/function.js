@@ -1,7 +1,7 @@
 "use strict";
 
 const start = () => {
-    const parent = document.querySelector(`.shop .wrapper`);
+    const parent = document.querySelector(`.shop__flex-container`);
 
     const firstResponse = document.querySelector(`.header .nav__link`).getAttribute(`data-category`);
 
@@ -22,7 +22,7 @@ const handlerNavLink = () => {
 
 //показываем продукты
 const showProducts = (e) => {
-    const parent = document.querySelector(`.shop .wrapper`);
+    const parent = document.querySelector(`.shop__flex-container`);
 
     const target = e.target;
     //ищем категорию на которую нажали
@@ -46,6 +46,8 @@ const getResource = async (url) => {
 const createCards = (arr, parent) => {
     //очищаем парент при нажатии
     parent.innerHTML = ``;
+    showSearch();
+    showFilter();
 
     const shopCards = document.createElement(`div`);
 
@@ -60,16 +62,28 @@ const createCards = (arr, parent) => {
         productCard.classList.add(`product`);
 
         productCard.innerHTML = `
-        <div class="product__img-container">
-            <img src="${item.img}" alt="" class="product__img">
-        </div>
-        <div class="product__content">
-            <h3 class="product__title">${item.name}</h3>
-            <p class="product__price"> ${item.price} грн</p>
-        </div>
+
+            <div class="product__img-container">
+                    <img src="${item.img}" alt="" class="product__img">
+            </div>
+            <div class="product__content">
+                    <h3 class="product__title">
+                        ${item.name}
+                    </h3>
+                    <p class="product__text">Premium beard balm</p>
+                    <p class="product__text">50 ml</p>
+                    <p class="product__text">new york original</p>
+                    <p class="product__price">
+                        ${item.price}$
+                    </p>
+                    <div class="product__buttons">
+                        <button class="btn btn--black">Shop now</button>
+                        <button class="btn btn--plus"></button>
+                    </div>
+
     `;
         shopCards.appendChild(productCard);
 
-        document.querySelectorAll(`.product__img`).forEach(item => { item.style.width = `100px` });
+        document.querySelectorAll(`.product__img`).forEach(item => { item.style.width = `100%` });
     });
 }
