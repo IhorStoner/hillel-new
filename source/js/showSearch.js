@@ -1,7 +1,9 @@
 "use strict";
 
 function showSearch() {
-    const parentShop = document.querySelector('.shop-content');
+    const parentShop = document.querySelector('.shop-search-container');
+
+    parentShop.innerHTML = ' ';
 
     const shopSearchContent = {
         type: "div",

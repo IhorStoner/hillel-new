@@ -12,14 +12,38 @@ function getBrandName(arrProduct) {
     return dataUnique;
 }
 
+// const getAttrCategory = () => {
+//     const navLink = document.querySelectorAll('.nav__link');
+//     navLink.forEach((item) => item.addEventListener('click',() => event.target.getAttribute('dataCategory')
+//     ));
+// }
+
 function showFilter() {
+
+    const navLink = document.querySelectorAll('.nav__link');
+    navLink.forEach((item) => item.addEventListener('click',() => event.target.getAttribute('dataCategory')
+    ));
+
     const parentShop = document.querySelector('.shop-content');
+
+    // const flexContainer = {
+    //     type: "div",
+    //     className: 'shop__flex-container',
+    //     parent: parentShop,
+    // }
+    // const flexContainerElem = createElement(flexContainer)
+
+    const flexContainerElem = document.querySelector('.shop__flex-container')
+
+    // filter brand name
+    
+    const bladesRazorsBrandArr = getBrandName(dataBladesRazors);
 
     const filters = {
         type: "aside",
         className: 'filters',
         id: 'filters',
-        parent: parentShop,
+        parent: flexContainerElem,
     }
     const filtersElem = createElement(filters);
 
@@ -60,8 +84,6 @@ function showFilter() {
     }
     const filtersTitleBlockElem = createElement(filtersBlockTitle);
 
-    // filter brand name
-    const bladesRazorsBrandArr = getBrandName(dataBladesRazors);
     //create checkbox
     bladesRazorsBrandArr.forEach(function(item) {
         const chooseFilter = {
@@ -138,4 +160,22 @@ function showFilter() {
 
         createElement(textFiltrRadio);
     })
+
+    // btn submit
+    const btnOkContainer = {
+        type: "div",
+        className: 'filters__btn-submit', 
+        parent: filtersElem,
+    }
+
+    const btnOkElem = createElement(btnOkContainer);
+
+    const btnOk = {
+        type: "button",
+        className: 'btn btn--black',
+        text: 'SHOW', 
+        parent: btnOkElem,
+    }
+
+    createElement(btnOk);
 }
