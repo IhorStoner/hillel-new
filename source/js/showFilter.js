@@ -12,17 +12,8 @@ function getBrandName(arrProduct) {
     return dataUnique;
 }
 
-// const getAttrCategory = () => {
-//     const navLink = document.querySelectorAll('.nav__link');
-//     navLink.forEach((item) => item.addEventListener('click',() => event.target.getAttribute('dataCategory')
-//     ));
-// }
-
-// const get = url => fetch(url).then(res => res.json());
-
 function showFilter() {
     const flexContainerElem = document.querySelector('.shop__flex-container');
-    const firstResponse = document.querySelector(`.header .nav__link`).getAttribute(`data-category`);
     const navLink = document.querySelectorAll('.header .nav__link');
 
     navLink.forEach(item => item.addEventListener('click',() => {
@@ -179,9 +170,55 @@ function createFilter(category, parentElem) {
     const btnOk = {
         type: "button",
         className: 'btn btn--black',
-        text: 'SHOW', 
+        id: 'btnShowFilter',
+        text: 'SHOW',
         parent: btnOkElem,
     }
 
-    createElement(btnOk);
+    const btnSubmitFilter = createElement(btnOk);
+    btnSubmitFilter.addEventListener('click',handleCheckFilter)
+}
+
+
+//логика фильтра
+function handleCheckFilter() {
+    const checkboxSelectedArr = document.querySelectorAll('.choose-service__input');
+    const parent = document.querySelector(`.shop__flex-container`);
+    
+    const cardsContainer = document.querySelector('.shop__cards');
+    const category = cardsContainer.getAttribute('id');
+
+    const filterArr = [];
+
+    checkboxSelectedArr.forEach((item) => {
+        if(item.checked) {
+            filterArr.push(item.name);
+        }
+    })
+
+    getResource(category)
+        .then(data => {
+            const dataCategory = [];
+            console.log(data)
+            data.forEach((item) => {
+                filterArr.forEach((brandName) => {
+                    if(item.brand === brandName) {
+                        console.log(item)
+                        dataCategory.push(item);
+                    } 
+                })
+                
+            })
+
+            if(dataCategory.length === 0) {
+                createCards(data, parent, category);        
+            } else {
+                createCards(dataCategory, parent, category);
+            }
+            
+        });
+
+    
+
+    // createCards(filterArr,parent)
 }

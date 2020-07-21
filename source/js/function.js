@@ -11,13 +11,12 @@ const start = () => {
 
     //загрузка бритвы и лезвия как main page 
 
-    
     window.addEventListener("DOMContentLoaded", () => {
         getResource(firstResponse)
-        .then(data => createCards(data, parent));
+        .then(data => createFilter(data, parent));
 
         getResource(firstResponse)
-            .then(data => createFilter(data, parent));
+        .then(data => createCards(data, parent, firstResponse));
     });
 
 
@@ -38,24 +37,21 @@ const showProducts = (e) => {
     const category = target.getAttribute(`data-category`);
     //запрашиваем данные с сервера через category 
     getResource(category)
-        .then(data => createCards(data, parent));
+        .then(data => createCards(data, parent, category));
 }
 
 //Создаём картки для наших товаров
-const createCards = (arr, parent) => {
+const createCards = (arr, parent, category) => {
     //удаляем парент при нажатии
-
     const checkCards = document.querySelector('.shop__cards');
     if(checkCards) {
         checkCards.remove();
     }
 
     const shopCards = document.createElement(`div`);
-
     shopCards.classList.add(`shop__cards`);
-
+    shopCards.id = category;
     parent.appendChild(shopCards);
-    
 
     arr.forEach(item => {
 

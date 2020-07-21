@@ -987,7 +987,7 @@ p {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-  max-width: 100%;
+  width: 75%;
 }
 
 .shop__search-container {
@@ -1025,7 +1025,7 @@ p {
 }
 
 .filters {
-  width: 350px;
+  width: 25%;
   padding: 30px 8px 30px 8px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
