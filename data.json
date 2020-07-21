@@ -4,30 +4,35 @@
             "id": 11,
             "name": "Опасная Бритва The Bluebeards Revenge «Claymore» Straight Razor 5/8",
             "price":"5778",
+            "brand": "Claymore",
             "img":"https://barbercompany.com/image/cache/webp/catalog/product/2016-06-the-bluedeards-revange-claymore-straight-razor-543x543.webp"
         },
         {
             "id": 12,
             "name": "Дорожный Набор Для Бритья Edwin Jagger Ejlt2M3",
             "price":"4188",
+            "brand": "Edwin Jagger",
             "img":"https://barbercompany.com/image/cache/webp/catalog/product/2015-11-294-543x543.webp"
         },
         {
             "id": 13,
             "name": "Набор для бритья Muhle S 81 M336 SM3 Vivo",
-            "price":"2951 ",
+            "price":"2951",
+            "brand": "Muhle",
             "img":"https://barbercompany.com/image/cache/webp/catalog/product-2018/12-2018/Muhle_S_81_M336_SM3_Vivo-543x543.webp"
         },
         {
             "id": 14,
             "name": "Подарочный набор для бритья Taylor of Old Bond Street Shaving Brush, Mach 3 Razor & Jermyn Street Collection Shaving Cream 150 г",
-            "price":"3788 ",
+            "price":"3788",
+            "brand": "Muhle",
             "img":"https://barbercompany.com/image/cache/webp/catalog/product-2018/05-2018/Taylor-of-Old-Bond-Street-Shaving-Brush-Mach-3-Razor-Jermyn-Street-Collection-Shaving-Cream-543x543.webp"
         },
         {
             "id": 15,
             "name": "Станок для бритья Above The Tie Calypso M1 Aluminium Safety Razor",
-            "price":"2988 ",
+            "price":"2988",
+            "brand": "Calypso",
             "img":"https://barbercompany.com/image/cache/webp/catalog/product/2017-07-stanok-dlya-britya-above-the-tie-calypso-m1-aluminium-safety-razor-1-543x543.webp"
         }
     ],
@@ -36,30 +41,35 @@
             "id": 21,
             "name": "Бальзам После Бритья Truefitt & Hill Grafton Aftershave Balm 100 Мл",
             "price":"1298",
+            "brand": "Truefitt & Hill",
             "img":"https://barbercompany.com/image/cache/webp/catalog/Truefitt/balzam-posle-brytya-truefitt-hill-grafton-aftershave-balm-100-ml-543x543.webp"
         },
         {
             "id": 22,
             "name": "Лосьон После Бритья Floid Mentolado Vigoroso Xxl 400 Мл",
             "price":"398",
+            "brand": "Floid Mentolado",
             "img":"https://barbercompany.com/image/cache/webp/catalog/product/2016-10-floi-d-masaje-after-shave-locio-n-vigoroso-xxl-400ml-1-1-543x543.webp"
         },
         {
             "id": 23,
             "name": "Лосьон После Бритья Floid Mentolado Vigoroso Xxl 400 Мл",
             "price":"398",
+            "brand": "Floid Mentolado",
             "img":"https://barbercompany.com/image/cache/webp/catalog/product/2016-10-floi-d-masaje-after-shave-locio-n-vigoroso-xxl-400ml-1-1-543x543.webp"
         },
         {
             "id": 24,
             "name": "Лосьон после бритья Rasozero Spiffero Aftershave Splash 100 мл",
             "price":"228",
+            "brand": "Rasozero",
             "img":"https://barbercompany.com/image/cache/webp/catalog/product-2019/01-2019/Rasozero_Spiffero_Aftershave_Splash_100ml-543x543.webp"
         },
         {
             "id": 25,
             "name": "Мыло Для Бритья Le Pere Lucien Cologne-Fougere 200 Г",
             "price":"788",
+            "brand": "Le Pere",
             "img":"https://barbercompany.com/image/cache/webp/catalog/Le%20Pere%20Lucien/mylo-dlya-britya-le-pere-lucien-cologne-fougere-200g-1-543x543.webp"
         }
     ],
@@ -68,30 +78,35 @@
             "id": 31,
             "name": "Распылитель парфюмерный Proraso хромированный металл",
             "price":"1288",
+            "brand": "Proraso",
             "img":"https://barbercompany.com/image/cache/webp/catalog/product-new/Proraso%20Dispenser%20With%20Pump%2050-543x543.webp"
         },
         {
             "id": 32,
             "name": "Миска Для Сбивания Пены The Bluebeards Revenge Porcelain Shaving Bowl",
             "price":"1098",
+            "brand": "Proraso",
             "img":"https://barbercompany.com/image/cache/webp/catalog/product/2015-12-44-543x543.webp"
         },
         {
             "id": 33,
             "name": "Помазок Для Бритья Omega 10810 Кабан Черный",
             "price":"168",
+            "brand": "Omega",
             "img":"https://barbercompany.com/image/cache/webp/catalog/product/2017-01-omega-10810-kaban-chornij-543x543.webp"
         },
         {
             "id": 34,
             "name": "Помазок Для Бритья Omega 81151 С Подставкой",
             "price":"448",
+            "brand": "Omega",
             "img":"https://barbercompany.com/image/cache/webp/catalog/product/2017-01-omega-81151-z-pidstavoyu-543x543.webp"
         },
         {
             "id": 35,
             "name": "Чаша для бритья Edwin Jagger RN6",
             "price":"548",
+            "brand": "Edwin Jagger",
             "img":"https://barbercompany.com/image/cache/webp/catalog/product/2015-11-2-543x543.webp"
         }
     ],
@@ -100,30 +115,35 @@
             "id": 41,
             "name": "Бальзам для бороды Cella Beard Balm Protective 100 мл",
             "price":"498",
+            "brand": "Cella Beard",
             "img":"https://barbercompany.com/image/cache/webp/catalog/Cella/balzam-dlja-borodi-cella-beard-balm-protective-200-ml-543x543.webp"
         },
         {
             "id": 42,
             "name": "Масло Для Бороды Proraso Hot Oil Beard Treatment 4 х 17 мл",
             "price":"298",
+            "brand": "Proraso Hot",
             "img":"https://barbercompany.com/image/cache/webp/catalog/Proraso/maslo-dlja-borodi-proraso-hot-oil-beard-treatment-4-h-17-ml-543x543.webp"
         },
         {
             "id": 43,
             "name": "Помада для волос Reuzel Blue Pomade для толстых и жестких волос сильная фиксация сильный блеск на водной основе 340 г",
             "price":"928",
+            "brand": "Reuzel Blue",
             "img":"https://barbercompany.com/image/cache/webp/catalog/Reuzel/modelirujushhaja-pomada-na-vodnoj-osnove-reuzel-blue-hog-340-g-1-543x543.webp"
         },
         {
             "id": 44,
             "name": "Щетка Для Волос Kent PF19",
             "price":"398",
+            "brand": "Kent",
             "img":"https://barbercompany.com/image/cache/webp/catalog/product/2016-03-kent-pf19-543x543.webp"
         },
         {
             "id": 45,
             "name": "Гребень Kent 8T Серия Handmade",
             "price":"168",
+            "brand": "Kent",
             "img":"https://barbercompany.com/image/cache/webp/catalog/product/2015-08-8t-1-543x543.webp"
         }
     ],
@@ -132,30 +152,35 @@
             "id": 51,
             "name": "Антисептик спрей для дезинфекции рук, тела и поверхностей Touch Protect 250 мл",
             "price":"198",
+            "brand": "Touch Protect",
             "img":"https://barbercompany.com/image/cache/webp/catalog/2020/03-2020/Touch_Protect_250ml-543x543.webp"
         },
         {
             "id": 52,
             "name": "Гель Для Душа Truefitt & Hill Grafton Bath & Shower Gel 200 Мл",
             "price":"598",
+            "brand": "Truefitt",
             "img":"https://barbercompany.com/image/cache/webp/catalog/Truefitt/gel-dlya-dusha-truefitt-hill-grafton-bath-shower-gel-200-ml-543x543.webp"
         },
         {
             "id": 53,
             "name": "Подарочный набор Marvis Flavour Collection 7 по 25 мл",
             "price":"448",
+            "brand": "Flavour",
             "img":"https://barbercompany.com/image/cache/webp/catalog/Marvis/zestaw-prezentowy-marvis-flavour-collection-7-po-25ml-543x543.webp"
         },
         {
             "id": 54,
             "name": "Тальк Taylor of Old Bond Street Sandalwood Luxury Talcum Powder 100 гр",
             "price":"498",
+            "brand": "Old Bond",
             "img":"https://barbercompany.com/image/cache/webp/catalog/Marvis/zestaw-prezentowy-marvis-flavour-collection-7-po-25ml-543x543.webp"
         },
         {
             "id": 55,
             "name": "Дезодорант Шариковый D.R. Harris Arlington Roll-on Deodorant 50 г",
             "price":"498",
+            "brand": "Arlington",
             "img":"https://barbercompany.com/image/cache/webp/catalog/D%20R/dezodorant-sharikovij-d-r-harris-arlington-roll-on-deodorant-50-g-543x543.webp"
         }
     ],
@@ -164,30 +189,35 @@
             "id": 61,
             "name": "Дорожный Набор Для Бритья Edwin Jagger Ejlt2M3",
             "price":"4188",
+            "brand": "Edwin Jagger",
             "img":"https://barbercompany.com/image/cache/webp/catalog/product/2015-11-294-543x543.webp"
         },
         {
             "id": 62,
             "name": "Подарочный набор для бритья Taylor of Old Bond Street Shaving Brush, Mach 3 Razor & Jermyn Street Collection Shaving Cream 150 г",
             "price":"3788",
+            "brand": "Old Bond",
             "img":"https://barbercompany.com/image/cache/webp/catalog/product-2018/05-2018/Taylor-of-Old-Bond-Street-Shaving-Brush-Mach-3-Razor-Jermyn-Street-Collection-Shaving-Cream-543x543.webp"
         },
         {
             "id": 63,
             "name": "Масло Для Бороды Proraso Hot Oil Beard Treatment 4 х 17 мл",
             "price":"298",
+            "brand": "Proraso",
             "img":"https://barbercompany.com/image/cache/webp/catalog/Proraso/maslo-dlja-borodi-proraso-hot-oil-beard-treatment-4-h-17-ml-543x543.webp"
         },
         {
             "id": 64,
             "name": "Маникюрный Набор Унисекс на 6 Предметов Truefitt & Hill Large Manicure Set 6 Piece Tan",
             "price":"4788",
+            "brand": "Truefitt & Hill",
             "img":"https://barbercompany.com/image/cache/webp/catalog/product/2017-03-truefitt-hill-large-manicure-set-6-piece-tan-543x543.webp"
         },
         {
             "id": 65,
             "name": "Подарочный Набор Muhle Organic Body Care Set",
             "price":"948",
+            "brand": "Muhle",
             "img":"https://barbercompany.com/image/cache/webp/catalog/product-2019/12-2019/Muhle_Organic_Body_Care_Set-543x543.webp"
         }
     ]
