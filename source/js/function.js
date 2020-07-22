@@ -54,34 +54,85 @@ const createCards = (arr, parent, category) => {
     parent.appendChild(shopCards);
 
     arr.forEach(item => {
-
-        const productCard = document.createElement(`div`);
-
-        productCard.classList.add(`product`);
-
-        productCard.innerHTML = `
-
-            <div class="product__img-container">
-                    <img src="${item.img}" alt="" class="product__img">
-            </div>
-            <div class="product__content">
-                    <h3 class="product__title">
-                        ${item.name}
-                    </h3>
-                    <p class="product__text">Premium beard balm</p>
-                    <p class="product__text">50 ml</p>
-                    <p class="product__text">new york original</p>
-                    <p class="product__price">
-                        ${item.price}$
-                    </p>
-                    <div class="product__buttons">
-                        <button class="btn btn--black">Shop now</button>
-                        <button class="btn btn--plus"></button>
-                    </div>
-
-    `;
-        shopCards.appendChild(productCard);
-
-        document.querySelectorAll(`.product__img`).forEach(item => { item.style.width = `100%` });
+        createCard(item, shopCards, arr);
     });
+}
+
+const createCard = (item, parent, arr) => {
+
+    const productCard = document.createElement(`div`);
+
+    productCard.classList.add(`product`);
+
+    productCard.innerHTML = `
+
+        <div class="product__img-container" data-id=${item.id}>
+                <img src="${item.img}" alt="" class="product__img">
+        </div>
+        <div class="product__content" data-id=${item.id}>
+                <h3 class="product__title">
+                    ${item.name}
+                </h3>
+                <p class="product__price">
+                    ${item.price}$
+                </p>
+                <div class="product__buttons">
+                    <button class="btn btn--black">Shop now</button>
+                    <button class="btn btn--plus"></button>
+                </div>
+`;
+    parent.appendChild(productCard);
+
+    //исправить !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    document.querySelectorAll(`.product__img`).forEach(item => { item.style.width = `100%` });
+
+    productCard.addEventListener(`click`, handlerProductItem.bind(null, arr))
+
+}
+
+//нажатие на товар, переход на детальную информацию о товаре
+const handlerProductItem = (arr, event) => {
+    const target = event.target;
+
+    //handler на элементы которые не будут нас переносить на 2 страницу 
+    if (target.tagName === `BUTTON` || target.className === `product` || target.className === `product__img-container` || target.className === `product__content`) {
+        return;
+    }
+
+    const selectedProductId = target.parentNode.getAttribute(`data-id`);
+
+    const selectedProduct = arr.find((element) => {
+        return element.id === Number(selectedProductId);
+    });
+
+    showDetailInfo(selectedProduct);
+}
+
+
+//отображение страници с товаром
+const showDetailInfo = (item) => {
+
+    document.querySelector(`.shop .wrapper .shop-content .shop__flex-container`).innerHTML = ``;
+    const parent = document.querySelector(`.shop__flex-container`);
+    const productCard = document.createElement(`div`);
+
+    productCard.classList.add(`productInfo`);
+
+    productCard.innerHTML = `
+    <div class="left-column">
+        <img src=${item.img} alt=""/>
+    </div>
+    <div class="right-column">
+        <div class="product-description">
+            <h1>${item.name}</h1>
+           
+        </div>
+        <div class="product-price">
+            <h1>${item.price}$</h1>
+                <button class="btn btn--plus"></button>
+        </div>
+    </div>
+    `;
+
+    parent.appendChild(productCard);
 }
