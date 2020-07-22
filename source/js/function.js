@@ -82,7 +82,6 @@ const createCard = (item, parent, arr) => {
                     <button class="btn btn--black">Shop now</button>
                     <button class="btn btn--plus"></button>
                 </div>
-
 `;
     parent.appendChild(productCard);
 
@@ -97,7 +96,8 @@ const createCard = (item, parent, arr) => {
 const handlerProductItem = (arr, event) => {
     const target = event.target;
 
-    if (target.tagName === `BUTTON`) {
+    //handler на элементы которые не будут нас переносить на 2 страницу 
+    if (target.tagName === `BUTTON` || target.className === `product` || target.className === `product__img-container` || target.className === `product__content`) {
         return;
     }
 
@@ -107,12 +107,34 @@ const handlerProductItem = (arr, event) => {
         return element.id === Number(selectedProductId);
     });
 
-
     showDetailInfo(selectedProduct);
 }
 
 
 //отображение страници с товаром
 const showDetailInfo = (item) => {
+
     document.querySelector(`.shop .wrapper .shop-content .shop__flex-container`).innerHTML = ``;
+    const parent = document.querySelector(`.shop__flex-container`);
+    const productCard = document.createElement(`div`);
+
+    productCard.classList.add(`productInfo`);
+
+    productCard.innerHTML = `
+    <div class="left-column">
+        <img src=${item.img} alt=""/>
+    </div>
+    <div class="right-column">
+        <div class="product-description">
+            <h1>${item.name}</h1>
+           
+        </div>
+        <div class="product-price">
+            <h1>${item.price}$</h1>
+                <button class="btn btn--plus"></button>
+        </div>
+    </div>
+    `;
+
+    parent.appendChild(productCard);
 }
