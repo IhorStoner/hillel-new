@@ -6,12 +6,20 @@ const start = () => {
     const firstResponse = document.querySelector(`.header .nav__link`).getAttribute(`data-category`);
 
     handlerNavLink();
+    showSearch();
+    showFilter();
 
     //загрузка бритвы и лезвия как main page 
+
     window.addEventListener("DOMContentLoaded", () => {
         getResource(firstResponse)
-            .then(data => createCards(data, parent));
+        .then(data => createFilter(data, parent));
+
+        getResource(firstResponse)
+        .then(data => createCards(data, parent, firstResponse));
     });
+
+
 }
 
 //addEventListener для линков
@@ -29,30 +37,20 @@ const showProducts = (e) => {
     const category = target.getAttribute(`data-category`);
     //запрашиваем данные с сервера через category 
     getResource(category)
-        .then(data => createCards(data, parent));
+        .then(data => createCards(data, parent, category));
 }
 
-//асинхронный запрос, нужно установить json-server
-const getResource = async (url) => {
-    const res = await fetch(`http://localhost:3000/${url}`);
-
-    if (!res.ok) {
-        throw new Error(`Could not fetch http://localhost:3000/presents/${url}, status ${res.status}`);
-    }
-    return await res.json();
-};
-
 //Создаём картки для наших товаров
-const createCards = (arr, parent) => {
-    //очищаем парент при нажатии
-    parent.innerHTML = ``;
-    showSearch();
-    showFilter();
+const createCards = (arr, parent, category) => {
+    //удаляем парент при нажатии
+    const checkCards = document.querySelector('.shop__cards');
+    if(checkCards) {
+        checkCards.remove();
+    }
 
     const shopCards = document.createElement(`div`);
-
     shopCards.classList.add(`shop__cards`);
-
+    shopCards.id = category;
     parent.appendChild(shopCards);
 
     arr.forEach(item => {
