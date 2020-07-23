@@ -30,6 +30,7 @@ const handlerNavLink = () => {
 //показываем продукты
 const showProducts = (e) => {
     const parent = document.querySelector(`.shop__flex-container`);
+    parent.innerHTML = ' ';
 
     const target = e.target;
     //ищем категорию на которую нажали
@@ -118,20 +119,24 @@ const showDetailInfo = (item) => {
     const parent = document.querySelector(`.shop__flex-container`);
     const productCard = document.createElement(`div`);
 
-    productCard.classList.add(`productInfo`);
+    productCard.classList.add(`product-info`);
 
     productCard.innerHTML = `
-    <div class="left-column">
-        <img src=${item.img} alt=""/>
+    <div class="product-info__img">
+        <img src=${item.img} alt="product img"/>
     </div>
-    <div class="right-column">
-        <div class="product-description">
-            <h1>${item.name}</h1>
-           
+    <div class="product-info__info">
+        <div class="product-info__link-container">
+            <a class="product-info__link product-info__link--active">Описание</a>
+            <a class="product-info__link">Отзывы</a>
         </div>
-        <div class="product-price">
-            <h1>${item.price}$</h1>
-                <button class="btn btn--plus"></button>
+        <div class="product-info__title-container">
+            <h2 class="product-info__title">${item.name}</h2>
+            <p class="product-info__description">${item.descriptions}</p>
+        </div>
+        <div class="product-info__price-container">
+            <p class="product-info__price">${item.price}$</p>
+            <button class="btn btn--plus"></button>
         </div>
     </div>
     `;

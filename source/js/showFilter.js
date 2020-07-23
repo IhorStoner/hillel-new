@@ -179,8 +179,6 @@ function createFilter(category, parentElem) {
     btnSubmitFilter.addEventListener('click',handleCheckFilter)
 }
 
-
-//логика фильтра
 function handleCheckFilter() {
     const checkboxSelectedArr = document.querySelectorAll('.choose-service__input');
     const parent = document.querySelector(`.shop__flex-container`);
@@ -196,7 +194,7 @@ function handleCheckFilter() {
         }
     })
 
-    //filter logika
+    //filter lohika
     getResource(category)
         .then(data => {
             const dataCategory = [];
