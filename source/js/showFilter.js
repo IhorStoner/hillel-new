@@ -133,7 +133,7 @@ function createFilter(category, parentElem) {
         const filterRadio = {
             type: "input",
             attrs: {name: `choose-master__item`,type: 'radio'},
-            id: `master-${filtersRadioData.indexOf(item)}`,
+            id: `filter-${filtersRadioData.indexOf(item)}`,
             className: 'choose-master__radio',
             parent: filterPriceElem,
         }
@@ -141,7 +141,7 @@ function createFilter(category, parentElem) {
     
         const labelFiltrRadio = {
             type: "label",
-            forAttr: `master-${filtersRadioData.indexOf(item)}`,
+            forAttr: `filter-${filtersRadioData.indexOf(item)}`,
             className: 'choose-master__label',
             parent: filterPriceElem,
         }
@@ -149,7 +149,7 @@ function createFilter(category, parentElem) {
     
         const textFiltrRadio = {
             type: "label",
-            forAttr: `master-${filtersRadioData.indexOf(item)}`,
+            forAttr: `filter-${filtersRadioData.indexOf(item)}`,
             className: 'choose-master__text',
             text: item.value, 
             parent: filterPriceElem,
@@ -196,29 +196,46 @@ function handleCheckFilter() {
         }
     })
 
+    //filter logika
     getResource(category)
         .then(data => {
             const dataCategory = [];
-            console.log(data)
+
             data.forEach((item) => {
+                //checkbox
                 filterArr.forEach((brandName) => {
                     if(item.brand === brandName) {
-                        console.log(item)
                         dataCategory.push(item);
                     } 
                 })
-                
             })
 
-            if(dataCategory.length === 0) {
-                createCards(data, parent, category);        
-            } else {
-                createCards(dataCategory, parent, category);
-            }
-            
+            // сортировка
+            //filter radio 
+            const radioCheckArr = document.querySelectorAll('.choose-master__radio');
+            radioCheckArr.forEach((radio) => {
+                if(radio.checked && radio.id === 'filter-0' ) {
+                    if(dataCategory.length === 0) {
+                    //exp to cheap
+                        data.sort((product1, product2) => Number(product1.price) > Number(product2.price) ? 1 : -1);
+                        data.reverse();
+                        createCards(data, parent, category);
+                    } else {
+                        dataCategory.sort((product1, product2) => Number(product1.price) > Number(product2.price) ? 1 : -1);
+                        dataCategory.reverse();
+                        createCards(dataCategory, parent, category); 
+                    }
+
+                } else if(radio.checked && radio.id === 'filter-1') {
+                    //cheap to exp
+                    if(dataCategory.length === 0) {
+                        data.sort((product1, product2) => Number(product1.price) > Number(product2.price) ? 1 : -1);
+                        createCards(data, parent, category); 
+                    } else {
+                        dataCategory.sort((product1, product2) => Number(product1.price) > Number(product2.price) ? 1 : -1);
+                        createCards(dataCategory, parent, category);
+                    }                   
+                }
+            })
         });
-
-    
-
-    // createCards(filterArr,parent)
 }

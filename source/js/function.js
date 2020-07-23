@@ -7,7 +7,6 @@ const start = () => {
 
     handlerNavLink();
     showSearch();
-    showFilter();
 
     //загрузка бритвы и лезвия как main page 
 
@@ -37,7 +36,10 @@ const showProducts = (e) => {
     const category = target.getAttribute(`data-category`);
     //запрашиваем данные с сервера через category 
     getResource(category)
-        .then(data => createCards(data, parent, category));
+        .then(data => {
+            createFilter(data, parent)
+            createCards(data, parent, category)
+        })
 }
 
 //Создаём картки для наших товаров
