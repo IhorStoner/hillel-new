@@ -233,6 +233,12 @@ function handleCheckFilter() {
                         dataCategory.sort((product1, product2) => Number(product1.price) > Number(product2.price) ? 1 : -1);
                         createCards(dataCategory, parent, category);
                     }                   
+                } else {
+                    if(dataCategory.length !== 0) {
+                        createCards(dataCategory, parent, category);
+                    } else {
+                        createCards(data, parent, category);
+                    } 
                 }
             })
         });
