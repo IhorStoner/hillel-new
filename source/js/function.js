@@ -17,8 +17,6 @@ const start = () => {
         getResource(firstResponse)
         .then(data => createCards(data, parent, firstResponse));
     });
-
-
 }
 
 //addEventListener для линков

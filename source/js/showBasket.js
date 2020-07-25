@@ -10,5 +10,4 @@ function showBasket() {
 function handleShowBasket() {
     const shopContent = document.querySelector('.shop-content');
     shopContent.innerHTML = '';
-    
 }

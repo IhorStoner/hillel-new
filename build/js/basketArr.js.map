@@ -1,0 +1,1 @@
+{"version":3,"sources":["basketArr.js"],"names":["basketArr"],"mappings":";;AAAA,IAAMA,SAAS,GAAG,EAAlB","sourcesContent":["const basketArr = [];"],"file":"basketArr.js"}
