@@ -1,4 +1,59 @@
 .product-info {
     display: flex;
     justify-content: space-between;
+
+    &__link-container {
+        margin-bottom: 15px;
+    }
+
+    &__title {
+        color: #FF7A00;
+        font-family: $main-font-family;
+        font-size: 1.6rem;
+    }
+
+    &__price {
+        color: #FF7A00;
+        font-size: 1.6rem;
+        font-family: $main-font-family;
+        font-weight: bold;
+    }
+
+    &__price-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 150px;
+    }
+
+    &__title-container {
+        max-width: 400px;
+    }
+
+    &__description {
+        font-family: $main-font-family;
+        font-size: 1rem;  
+    }
+
+    &__link {
+        font-family: $main-font-family;
+        font-size: 1.3rem;
+        color: #000;
+        cursor: default;
+        margin-right: 10px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &:hover {
+            color: #FF7A00;
+            cursor: pointer;
+        }
+
+        &--active {
+            color: #FF7A00;
+            text-decoration: underline;
+        }
+    }
 }
