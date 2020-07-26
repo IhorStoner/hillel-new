@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "gulp start"
+    "start": "gulp start",
+    "build": "gulp build"
   },
   "author": "",
   "license": "ISC",
@@ -26,17 +27,11 @@
     "gulp-imagemin": "^7.1.0",
     "gulp-json-srv": "^1.2.0",
     "gulp-plumber": "^1.2.1",
-    "gulp-postcss": "^8.0.0",
-    "gulp-posthtml": "^3.0.5",
     "gulp-rename": "^2.0.0",
-    "gulp-rigger": "^0.5.8",
     "gulp-sass": "^4.0.2",
     "gulp-scss": "^1.4.0",
     "gulp-sourcemaps": "^2.6.5",
-    "gulp-svgstore": "^7.0.1",
-    "gulp-uglify": "^3.0.2",
-    "json-server": "^0.16.1",
-    "posthtml-include": "^1.4.3",
-    "pump": "^3.0.0"
+    "gulp-uglify-es": "^2.0.0",
+    "json-server": "^0.16.1"
   }
 }

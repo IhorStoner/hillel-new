@@ -1,3 +1,5 @@
 # Barber-hillel
-(start server) npm start OR json-server --watch data.json <br/>
-  gulp watch(write this in terminal if you change scss to css)
+gulp start (write this in terminal before start developing) <br/>
+gulp build (write this in terminal if you want build your project) <br/>
+
+add js files in gulpfile.js => in array jsFiles

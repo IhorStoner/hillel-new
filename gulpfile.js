@@ -7,16 +7,22 @@ const autoprefixer = require('gulp-autoprefixer');
 const del = require('del'); 
 const imagemin = require('gulp-imagemin');
 const plumber = require('gulp-plumber');
-const postcss = require('gulp-postcss');
-const posthtml = require('gulp-posthtml');
 const rename = require('gulp-rename');
-const svgstore = require('gulp-svgstore');
-const uglify = require('gulp-uglify');
-const pump = require('pump');
-const include = require('posthtml-include');
 const csso = require('gulp-csso');
 const babel = require('gulp-babel');
 const concat = require('gulp-concat');
+const uglify = require('gulp-uglify-es').default;
+
+const jsFiles = [
+  'source/js/getResourse.js',
+  'source/js/createElement.js',
+  'source/js/showSearch.js',
+  'source/js/showFilter.js',
+  'source/js/basketArr.js',
+  'source/js/showBasket.js',
+  'source/js/function.js',
+  'source/js/app.js',
+]
  
 gulp.task('scss', function () {
   return gulp.src('source/sass/**/*.scss')
@@ -51,27 +57,25 @@ gulp.task('watchCss', function () {
 
 gulp.task('imageMin', () => {
   return gulp.src('source/assets/img/**/*')
-    // .pipe(imagemin())    нужно включить но времезатратно
+    .pipe(imagemin())    //времезатратно
     .pipe(gulp.dest('build/assets/img'));
 })
 
-const jsFiles = ['source/js/getResourse.js','source/js/createElement.js','source/js/showSearch.js',
-                'source/js/showFilter.js','source/js/basketArr.js','source/js/showBasket.js','source/js/function.js','source/js/app.js',]
-
 gulp.task('js',() => {
-  return gulp.src(jsFiles, '!source/js/build.js')
+  return gulp.src(jsFiles, '!source/js/build.min.js')
     .pipe(sourcemaps.init())
-    .pipe(concat('build.js'))
-    // .pipe(babel())        //не работает после конкатенации 
+    // .pipe(babel()) //не работает babel
+    .pipe(concat('build.min.js'))  
+    .pipe(uglify())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('build/js'))
     .pipe(gulp.dest('source/js'))
 })
 
 gulp.task('watchJs', function () {
-  gulp.watch(['source/js/**', '!source/js/build.js'], gulp.series('js'));
+  gulp.watch(['source/js/**', '!source/js/build.min.js'], gulp.parallel('js'));
 });
 
-gulp.task('build', gulp.series('del','html','scss','js','imageMin')); //'imageMin'
+gulp.task('build', gulp.series('del','html','scss','js','imageMin')); 
 
 gulp.task('start', gulp.parallel('watchCss','json-server','watchJs'));
