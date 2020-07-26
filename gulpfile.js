@@ -26,7 +26,6 @@ const jsFiles = [
  
 gulp.task('scss', function () {
   return gulp.src('source/sass/**/*.scss')
-    .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(autoprefixer())
