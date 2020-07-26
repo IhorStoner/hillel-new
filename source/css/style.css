@@ -368,6 +368,7 @@ ul li {
 
 h1, h2, h3 {
   margin: 0;
+  cursor: default;
 }
 
 h1 {
@@ -401,6 +402,7 @@ p {
   font-size: 1rem;
   line-height: 1.25rem;
   color: #222;
+  cursor: default;
 }
 
 .btn {
@@ -497,6 +499,7 @@ p {
   display: inline-block;
   margin: 0 auto;
   padding-left: 25px;
+  cursor: default;
 }
 
 .title--black {
@@ -965,6 +968,11 @@ p {
   .shop-offer {
     background: linear-gradient(90deg, rgba(255, 122, 0, 0.7) 0%, rgba(255, 122, 0, 0) 100%), url(../assets/img/png/bg-shop320px.png);
   }
+}
+
+.product-info {
+  display: flex;
+  justify-content: space-between;
 }
 
 .shop {

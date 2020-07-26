@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700,800&display=swap" rel="stylesheet">
 </head>
 
@@ -48,227 +48,10 @@
                 <div class="shop__flex-container">
                 </div>
             </div>
-
-            <!-- <div class="shop__content">
-                <div class="shop__search-container">
-                    <input class="shop__search-item" type="text" placeholder="Search something you need...">
-                    <button class="btn btn--orange shop__search-btn">search</button>
-                </div>
-                <div class="shop__flex-container">
-                    <aside class="filters">
-                        <div class="filters__header">
-                            <h2 class="shop__title">
-                                Filters
-                            </h2>
-                            <button class="filters__open-btn">
-                            </button>
-                        </div>
-                        <div class="filters__content">
-                            <div class="filters__block">
-                                <button class="filters__btn">Choose something</button>
-                                <div class="choose-service__item filters__item">
-                                    <input class="choose-service__input" type="checkbox" id="service-1" name="service-1">
-                                    <label for="service-1" class="choose-service__checkbox"></label>
-                                    <label for="service-1" class="choose-master__text">Choose something</label>
-                                </div>
-                                <div class="choose-service__item filters__item">
-                                    <input class="choose-service__input" type="checkbox" id="service-2" name="service-2">
-                                    <label for="service-2" class="choose-service__checkbox"></label>
-                                    <label for="service-2" class="choose-master__text">Choose something</label>
-                                </div>
-                                <div class="choose-service__item filters__item">
-                                    <input class="choose-service__input" type="checkbox" id="service-3" name="service-3">
-                                    <label for="service-3" class="choose-service__checkbox"></label>
-                                    <label for="service-3" class="choose-master__text">Choose something</label>
-                                </div>
-                                <div class="choose-service__item filters__item">
-                                    <input class="choose-service__input" type="checkbox" id="service-4" name="service-4">
-                                    <label for="service-4" class="choose-service__checkbox"></label>
-                                    <label for="service-4" class="choose-master__text">Choose something</label>
-                                </div>
-                                <div class="choose-service__item filters__item">
-                                    <input class="choose-service__input" type="checkbox" id="service-5" name="service-5">
-                                    <label for="service-5" class="choose-service__checkbox"></label>
-                                    <label for="service-5" class="choose-master__text">Choose something</label>
-                                </div>
-                            </div>
-                            <div class="filters__block">
-                                <button class="filters__btn">Choose something</button>
-                                <div class="choose-master__item">
-                                    <input type="radio" class="choose-master__radio" name="choose-master__item" id="master-1" value="1">
-                                    <label for="master-1" class="choose-master__label"></label>
-                                    <label for="master-1" class="choose-master__text">Choose something</label>
-                                </div>
-                                <div class="choose-master__item">
-                                    <input type="radio" class="choose-master__radio" name="choose-master__item" id="master-2" value="2">
-                                    <label for="master-2" class="choose-master__label"></label>
-                                    <label for="master-2" class="choose-master__text">Choose something</label>
-                                </div>
-                                <div class="choose-master__item">
-                                    <input type="radio" class="choose-master__radio" name="choose-master__item" id="master-3" value="3">
-                                    <label for="master-3" class="choose-master__label"></label>
-                                    <label for="master-3" class="choose-master__text">Choose something</label>
-                                </div>
-                                <div class="choose-master__item">
-                                    <input type="radio" class="choose-master__radio" name="choose-master__item" id="master-4" value="4">
-                                    <label for="master-4" class="choose-master__label"></label>
-                                    <label for="master-4" class="choose-master__text">Choose something</label>
-                                </div>
-                                <div class="choose-master__item">
-                                    <input type="radio" class="choose-master__radio" name="choose-master__item" id="master-5" value="5">
-                                    <label for="master-5" class="choose-master__label"></label>
-                                    <label for="master-5" class="choose-master__text">Choose something</label>
-                                </div>
-                            </div>
-                            <div class="filters__block">
-                                <button class="filters__btn">
-                                    Choose something
-                                </button>
-                                <div class="filters__price price">
-                                    <div class="price__slider">
-                                        <button class="price__btn price__btn--from">
-                                            <span class="price__text ">60</span>
-                                        </button>
-                                        <span class="price__line">
-                                        </span>
-                                        <button class="price__btn price__btn--to">
-                                            <span class="price__text ">800</span>
-                                        </button>
-                                    </div>
-                                    <div class="price__block">
-                                        <div class="price__from">
-                                            <span class="price__sub-text">From:</span>
-                                            <input class="price__input" type="text" value="60">
-                                        </div>
-                                        <div class="price__to">
-                                            <span class="price__sub-text">To:</span>
-                                            <input class="price__input" type="text" value="800">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="filters__btn-submit">
-                                <button class="btn btn--black">SHOW</button>
-                            </div>   
-                        </div>
-                    </aside>
-                    
-                        <div class="product">
-                            <span class="product__sale">Sale</span>
-                            <div class="product__img-container">
-                                 <img src="../assets/img/png/product.png" alt="" class="product__img">
-                            </div>
-                            <div class="product__content">
-                                 <h3 class="product__title">
-                                     Barbers
-                                 </h3>
-                                 <p class="product__text">Premium beard balm</p>
-                                 <p class="product__text">50 ml</p>
-                                 <p class="product__text">new york original</p>
-                                 <p class="product__price">
-                                     $ 490.00
-                                 </p>
-                                 <div class="product__buttons">
-                                     <button class="btn btn--black">Shop now</button>
-                                     <button class="btn btn--plus"></button>
-                                 </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </section>
-    <section class="popular-products">
-        <div class="wrapper">
-            <h1 class="title title--point popular-products__title">
-                Popular products
-            </h1>
-            <div class="popular-products__content">
-                <div class="product">
-                    <span class="product__sale">Sale</span>
-                    <div class="product__img-container">
-                        <img src="assets/img/png/product.png" alt="" class="product__img">
-                    </div>
-                    <div class="product__content">
-                        <h3 class="product__title">
-                            Barbers
-                        </h3>
-                        <p class="product__text">Premium beard balm</p>
-                        <p class="product__text">50 ml</p>
-                        <p class="product__text">new york original</p>
-                        <p class="product__price">
-                            $ 490.00
-                        </p>
-                        <div class="product__buttons">
-                            <button class="btn btn--black">Shop now</button>
-                            <button class="btn btn--plus"></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="product">
-                    <div class="product__img-container">
-                        <img src="assets/img/png/product.png" alt="" class="product__img">
-                    </div>
-                    <div class="product__content">
-                        <h3 class="product__title">
-                            Barbers
-                        </h3>
-                        <p class="product__text">Premium beard balm</p>
-                        <p class="product__text">50 ml</p>
-                        <p class="product__text">new york original</p>
-                        <p class="product__price">
-                            $ 490.00
-                        </p>
-                        <div class="product__buttons">
-                            <button class="btn btn--black">Shop now</button>
-                            <button class="btn btn--plus"></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="product">
-                    <span class="product__sale">Sale</span>
-                    <div class="product__img-container">
-                        <img src="assets/img/png/product.png" alt="" class="product__img">
-                    </div>
-                    <div class="product__content">
-                        <h3 class="product__title">
-                            Barbers
-                        </h3>
-                        <p class="product__text">Premium beard balm</p>
-                        <p class="product__text">50 ml</p>
-                        <p class="product__text">new york original</p>
-                        <p class="product__price">
-                            $ 490.00
-                        </p>
-                        <div class="product__buttons">
-                            <button class="btn btn--black">Shop now</button>
-                            <button class="btn btn--plus"></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="product">
-                    <div class="product__img-container">
-                        <img src="assets/img/png/product.png" alt="" class="product__img">
-                    </div>
-                    <div class="product__content">
-                        <h3 class="product__title">
-                            Barbers
-                        </h3>
-                        <p class="product__text">Premium beard balm</p>
-                        <p class="product__text">50 ml</p>
-                        <p class="product__text">new york original</p>
-                        <p class="product__price">
-                            $ 490.00
-                        </p>
-                        <div class="product__buttons">
-                            <button class="btn btn--black">Shop now</button>
-                            <button class="btn btn--plus"></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    
+    
     <footer class="footer">
         <div class="wrapper">
             <div class="footer__container">
@@ -321,14 +104,15 @@
         </div>
     </footer>
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="js/getResourse.js"></script>
+    <script src="js/build.min.js"></script>
+    <!-- <script src="js/getResourse.js"></script>
     <script src="js/createElement.js"></script>
     <script src="js/showSearch.js"></script>
     <script src="js/showFilter.js"></script>
     <script src="js/basketArr.js"></script>
     <script src="js/showBasket.js"></script>
     <script src="js/function.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/app.js"></script> -->
 </body>
 
 </html>
