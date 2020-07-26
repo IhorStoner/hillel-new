@@ -33,6 +33,7 @@ ul{
 
 h1,h2,h3 {
     margin: 0;
+    cursor: default;
 }
 
 h1 {
@@ -65,7 +66,8 @@ p {
     font-weight: 400;
     font-size: 1rem;
     line-height: 1.25rem;
-    color: #222;  
+    color: #222;
+    cursor: default;
 }
 
 // button {
@@ -171,6 +173,7 @@ p {
     display: inline-block;
     margin: 0 auto;
     padding-left: 25px;
+    cursor: default;
 
     
     &--black {
