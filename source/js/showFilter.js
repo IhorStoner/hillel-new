@@ -179,6 +179,8 @@ function createFilter(category, parentElem) {
     btnSubmitFilter.addEventListener('click',handleCheckFilter)
 }
 
+
+//логика фильтра
 function handleCheckFilter() {
     const checkboxSelectedArr = document.querySelectorAll('.choose-service__input');
     const parent = document.querySelector(`.shop__flex-container`);
@@ -194,7 +196,7 @@ function handleCheckFilter() {
         }
     })
 
-    //filter lohika
+    //filter logika
     getResource(category)
         .then(data => {
             const dataCategory = [];
@@ -233,12 +235,6 @@ function handleCheckFilter() {
                         dataCategory.sort((product1, product2) => Number(product1.price) > Number(product2.price) ? 1 : -1);
                         createCards(dataCategory, parent, category);
                     }                   
-                } else {
-                    if(dataCategory !== 0 ){
-                        createCards(dataCategory, parent, category);
-                    } else {
-                        createCards(data, parent, category); 
-                    }
                 }
             })
         });
