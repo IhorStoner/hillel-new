@@ -73,7 +73,7 @@ gulp.task('js',() => {
 })
 
 gulp.task('watchJs', function () {
-  gulp.watch(['source/js/**', '!source/js/build.min.js'], gulp.parallel('js'));
+  gulp.watch(jsFiles, gulp.parallel('js'));
 });
 
 gulp.task('build', gulp.series('del','html','scss','js','imageMin')); 
