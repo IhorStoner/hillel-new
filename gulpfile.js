@@ -22,6 +22,7 @@ const jsFiles = [
   'source/js/showBasket.js',
   'source/js/function.js',
   'source/js/app.js',
+  '!source/js/build.min.js'
 ]
  
 gulp.task('scss', function () {
@@ -61,7 +62,7 @@ gulp.task('imageMin', () => {
 })
 
 gulp.task('js',() => {
-  return gulp.src(jsFiles, '!source/js/build.min.js')
+  return gulp.src(jsFiles)
     .pipe(sourcemaps.init())
     // .pipe(babel()) //не работает babel
     .pipe(concat('build.min.js'))  
@@ -72,7 +73,7 @@ gulp.task('js',() => {
 })
 
 gulp.task('watchJs', function () {
-  gulp.watch(['source/js/**', '!source/js/build.min.js'], gulp.parallel('js'));
+  gulp.watch(jsFiles, gulp.parallel('js'));
 });
 
 gulp.task('build', gulp.series('del','html','scss','js','imageMin')); 
