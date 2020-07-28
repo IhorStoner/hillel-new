@@ -87,7 +87,7 @@ const createCard = (item, parent, arr) => {
                     ${item.price} грн
                 </p>
                 <div class="product__buttons">
-                    <button class="btn btn--black">Shop now</button>
+                    <button class="btn btn--black">Посмотреть</button>
                     <button class="btn btn--plus"></button>
                 </div>
 `;
