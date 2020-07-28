@@ -1,12 +1,21 @@
 "use strict";
 
 const start = () => {
+    // localstorage data
+    const basketLocalStorage = localStorage.getItem('basket');
+
+    if(!basketLocalStorage) {
+        localStorage.setItem('basket', JSON.stringify(basketArr));
+    }
+
     const parent = document.querySelector(`.shop__flex-container`);
 
     const firstResponse = document.querySelector(`.header .nav__link`).getAttribute(`data-category`);
 
     handlerNavLink();
     showSearch();
+    showBasket();
+
 
     //загрузка бритвы и лезвия как main page 
 
@@ -75,10 +84,10 @@ const createCard = (item, parent, arr) => {
                     ${item.name}
                 </h3>
                 <p class="product__price">
-                    ${item.price}$
+                    ${item.price} грн
                 </p>
                 <div class="product__buttons">
-                    <button class="btn btn--black">Shop now</button>
+                    <button class="btn btn--black">Посмотреть</button>
                     <button class="btn btn--plus"></button>
                 </div>
 `;
@@ -133,7 +142,7 @@ const showDetailInfo = (item) => {
             <p class="product-info__description">${item.descriptions}</p>
         </div>
         <div class="product-info__price-container">
-            <p class="product-info__price">${item.price}$</p>
+            <p class="product-info__price">${item.price} грн</p>
             <button class="btn btn--plus"></button>
         </div>
     </div>

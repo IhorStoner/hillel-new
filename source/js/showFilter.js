@@ -1,8 +1,8 @@
 "use strict";
 
 const filtersRadioData = [
-    {value: 'from expensive to cheap'},
-    {value: 'from cheap to expensive'},
+    {value: 'От дорогих к дешевым'},
+    {value: 'От дешевых к дорогим'},
 ]
 
 function getBrandName(arrProduct) {
@@ -52,7 +52,7 @@ function createFilter(category, parentElem) {
     const filtersTitle = {
         type: "h2",
         className: 'shop__title',
-        text: 'Filters',
+        text: 'Фильтр по брендам',
         parent: filtersHeaderElem,
     }
     createElement(filtersTitle);
@@ -171,7 +171,7 @@ function createFilter(category, parentElem) {
         type: "button",
         className: 'btn btn--black',
         id: 'btnShowFilter',
-        text: 'SHOW',
+        text: 'Фильтр',
         parent: btnOkElem,
     }
 
@@ -217,6 +217,7 @@ function handleCheckFilter() {
                     //exp to cheap
                         data.sort((product1, product2) => Number(product1.price) > Number(product2.price) ? 1 : -1);
                         data.reverse();
+                        console.log(data)
                         createCards(data, parent, category);
                     } else {
                         dataCategory.sort((product1, product2) => Number(product1.price) > Number(product2.price) ? 1 : -1);
