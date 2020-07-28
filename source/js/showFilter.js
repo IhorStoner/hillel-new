@@ -235,10 +235,10 @@ function handleCheckFilter() {
                         createCards(dataCategory, parent, category);
                     }                   
                 } else {
-                    if(dataCategory.length !== 0 ){
-                        createCards(dataCategory, parent, category);
-                    } else {
+                    if(dataCategory.length === 0) {
                         createCards(data, parent, category); 
+                    } else {
+                        createCards(dataCategory, parent, category);
                     }
                 }
             })
