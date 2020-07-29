@@ -4,7 +4,7 @@ const start = () => {
     // localstorage data
     const basketLocalStorage = localStorage.getItem('basket');
 
-    if(!basketLocalStorage) {
+    if (!basketLocalStorage) {
         localStorage.setItem('basket', JSON.stringify(basketArr));
     }
 
@@ -21,10 +21,10 @@ const start = () => {
 
     window.addEventListener("DOMContentLoaded", () => {
         getResource(firstResponse)
-        .then(data => createFilter(data, parent));
+            .then(data => createFilter(data, parent));
 
         getResource(firstResponse)
-        .then(data => createCards(data, parent, firstResponse));
+            .then(data => createCards(data, parent, firstResponse));
     });
 }
 
@@ -54,7 +54,7 @@ const showProducts = (e) => {
 const createCards = (arr, parent, category) => {
     //удаляем парент при нажатии
     const checkCards = document.querySelector('.shop__cards');
-    if(checkCards) {
+    if (checkCards) {
         checkCards.remove();
     }
 
@@ -76,10 +76,10 @@ const createCard = (item, parent, arr) => {
 
     productCard.innerHTML = `
 
-        <div class="product__img-container" data-id=${item.id}>
+        <div class="product__img-container">
                 <img src="${item.img}" alt="" class="product__img">
         </div>
-        <div class="product__content" data-id=${item.id}>
+        <div class="product__content">
                 <h3 class="product__title">
                     ${item.name}
                 </h3>
@@ -87,7 +87,7 @@ const createCard = (item, parent, arr) => {
                     ${item.price} грн
                 </p>
                 <div class="product__buttons">
-                    <button class="btn btn--black">Посмотреть</button>
+                    <button class="btn btn--black" data-id=${item.id}>Посмотреть</button>
                     <button class="btn btn--plus"></button>
                 </div>
 `;
@@ -105,11 +105,11 @@ const handlerProductItem = (arr, event) => {
     const target = event.target;
 
     //handler на элементы которые не будут нас переносить на 2 страницу 
-    if (target.tagName === `BUTTON` || target.className === `product` || target.className === `product__img-container` || target.className === `product__content`) {
+    if (target.className !== `btn btn--black`) {
         return;
     }
 
-    const selectedProductId = target.parentNode.getAttribute(`data-id`);
+    const selectedProductId = target.getAttribute(`data-id`);
 
     const selectedProduct = arr.find((element) => {
         return element.id === Number(selectedProductId);
@@ -134,19 +134,72 @@ const showDetailInfo = (item) => {
     </div>
     <div class="product-info__info">
         <div class="product-info__link-container">
-            <a class="product-info__link product-info__link--active">Описание</a>
-            <a class="product-info__link">Отзывы</a>
+            <a class="product-info__link product-info__link--active" id="descriptions">Описание</a>
+            <a class="product-info__link" id="reviews">Отзывы</a>
         </div>
-        <div class="product-info__title-container">
-            <h2 class="product-info__title">${item.name}</h2>
-            <p class="product-info__description">${item.descriptions}</p>
-        </div>
-        <div class="product-info__price-container">
-            <p class="product-info__price">${item.price} грн</p>
-            <button class="btn btn--plus"></button>
+        <div class="product-info__descriptions">
+            <div class="product-info__title-container">
+                 <h2 class="product-info__title">${item.name}</h2>
+                <p class="product-info__description">${item.descriptions}</p>
+             </div>
+            <div class="product-info__price-container">
+                 <p class="product-info__price">${item.price} грн</p>
+                <button class="btn btn--plus"></button>
+            </div>
         </div>
     </div>
     `;
 
     parent.appendChild(productCard);
+
+    document.getElementById(`reviews`).addEventListener(`click`, handlerReview.bind(null, item));
+    document.getElementById(`descriptions`).addEventListener(`click`, handlerDescriptions.bind(null, item));
+
+}
+
+const handlerReview = (item) => {
+    const descriptions = document.getElementById(`descriptions`);
+    descriptions.classList.remove(`product-info__link--active`);
+    const reviews = document.getElementById(`reviews`);
+    reviews.classList.add(`product-info__link--active`);
+
+    const parent = document.querySelector(`.product-info__descriptions`);
+    parent.innerHTML = '';
+
+    parent.innerHTML = `<div class="appointment-form__data"></div>
+    <div class="popup__comment-container">
+        <textarea class="popup__comment" name="review" id="review" placeholder="Please leave your review..." cols="72" rows="5"></textarea>
+    </div>
+    </div>
+    <div class="appointment-form__btn">
+    <button type="submit" class="btn btn--orange" id="btnSend">Отправить</button>
+    </div> `
+
+    document.querySelector(`#btnSend`).addEventListener(`click`, function (e) {
+        e.preventDefault();
+        const text = document.querySelector(`#review`).value;
+        const obj = {};
+        obj.id = item.id;
+        obj.text = text;
+
+        fetch(`data.json`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(obj)
+        });
+    });
+}
+
+const handlerDescriptions = (item) => {
+    const descriptions = document.getElementById(`descriptions`);
+    descriptions.classList.add(`product-info__link--active`);
+    const reviews = document.getElementById(`reviews`);
+    reviews.classList.remove(`product-info__link--active`);
+
+    const parent = document.querySelector(`.product-info__descriptions`);
+    parent.innerHTML = '';
+
+    showDetailInfo(item);
 }
