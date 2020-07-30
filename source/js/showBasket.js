@@ -6,7 +6,23 @@ const showBasket = () => {
 
     basketCounter.innerText = basketLocalStorage.length;
 
-    basketBtn.addEventListener('click', handleShowBasket);
+    if(basketLocalStorage.length > 0) {
+        basketBtn.addEventListener('click', handleShowBasket);
+    } else {
+        basketBtn.addEventListener('click', handleShowBasketNull);
+    }
+
+}
+
+const handleShowBasketNull = () => {
+    const shopContent = document.querySelector('.shop__flex-container');
+    shopContent.innerHTML = ' ';
+
+    const productContainer = document.createElement(`div`);
+    productContainer.classList.add('productBasket');
+    shopContent.appendChild(productContainer);
+
+    productContainer.innerHTML = '<h2 class="productBasket__basket-null">Ваша корзина пуста,начните покупки!</h2>';
 }
 
 const handleShowBasket = () => {
@@ -18,12 +34,20 @@ const handleShowBasket = () => {
     shopContent.appendChild(productContainer);
 
     const basketLocalStorage = JSON.parse(localStorage.getItem('basket'));
+    const basketCounter = document.getElementById('basketCounter');
+    basketCounter.innerHTML = basketLocalStorage.length;
 
+    // создаем карточки
     basketLocalStorage.forEach((item) => {
         createBasketCard(item, productContainer)
     })
 
+    const deleteProductBtn = document.querySelectorAll('#basketDeleteItemBtn');
+    deleteProductBtn.forEach((item) => {
+        item.addEventListener('click',handleDeleteProduct);
+    })
 
+    // создаем чек(сумма + кнопка оформить)
     const checkoutContainerInfo = {
         type: "div",
         className: 'checkout', 
@@ -52,6 +76,21 @@ const handleShowBasket = () => {
 
 }
 
+const handleDeleteProduct = () => {
+    const productId = event.target.getAttribute('data-id');
+    let basketArr = JSON.parse(localStorage.getItem('basket'));
+
+    const selectedProduct = basketArr.find((product) => {
+        return product.id === Number(productId);
+    });
+
+    const indexProduct = basketArr.indexOf(selectedProduct);
+    basketArr.splice(indexProduct,1);
+
+    localStorage.setItem('basket', JSON.stringify(basketArr));
+    handleShowBasket();
+}
+
 const createBasketCard = (item, parent) => {
     const productCard = document.createElement(`div`);
     productCard.classList.add(`productBasket__item`);
@@ -68,7 +107,7 @@ const createBasketCard = (item, parent) => {
             ${item.price} грн
         </p>
         <div class="productBasket__buttons">
-            <button class="productBasket__btnDelete btn btn--black" id="basketDeleteItemBtn">Убрать из корзины</button>
+            <button class="productBasket__btnDelete btn btn--black" id="basketDeleteItemBtn" data-id="${item.id}">Убрать из корзины</button>
         </div>
     `;
     

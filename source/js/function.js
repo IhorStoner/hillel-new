@@ -5,7 +5,7 @@ const start = () => {
     const basketLocalStorage = localStorage.getItem('basket');
 
     if(!basketLocalStorage) {
-        localStorage.setItem('basket', JSON.stringify(basketArr));
+        localStorage.setItem('basket', '[]');
     }
 
     const parent = document.querySelector(`.shop__flex-container`);
@@ -15,7 +15,6 @@ const start = () => {
     handlerNavLink();
     showSearch();
     showBasket();
-
 
     //загрузка бритвы и лезвия как main page 
 
@@ -66,6 +65,11 @@ const createCards = (arr, parent, category) => {
     arr.forEach(item => {
         createCard(item, shopCards, arr);
     });
+
+    const btnAdd = document.querySelectorAll('#addInBasket');
+    btnAdd.forEach((item) => {
+        item.addEventListener('click', handleAddInBasket.bind(this,arr));
+    })
 }
 
 const createCard = (item, parent, arr) => {
@@ -88,16 +92,34 @@ const createCard = (item, parent, arr) => {
                 </p>
                 <div class="product__buttons">
                     <button class="btn btn--black">Посмотреть</button>
-                    <button class="btn btn--plus"></button>
+                    <button class="btn btn--plus" id="addInBasket" data-id=${item.id}></button>
                 </div>
 `;
     parent.appendChild(productCard);
+
+    // добавление товара в корзину
+
 
     //исправить !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     document.querySelectorAll(`.product__img`).forEach(item => { item.style.width = `100%` });
 
     productCard.addEventListener(`click`, handlerProductItem.bind(null, arr))
 
+}
+
+const handleAddInBasket = (arr) => {
+    const productId = event.target.getAttribute('data-id');
+    
+    const selectedProduct = arr.find((element) => {
+        return element.id === Number(productId);
+    });
+
+    let basketLocalStorage = JSON.parse(localStorage.getItem('basket'));
+    basketLocalStorage.push(selectedProduct);
+    localStorage.setItem('basket',JSON.stringify(basketLocalStorage));
+    
+    const basketCounter = document.getElementById('basketCounter');
+    basketCounter.innerHTML = basketLocalStorage.length;
 }
 
 //нажатие на товар, переход на детальную информацию о товаре
