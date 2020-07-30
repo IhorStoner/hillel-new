@@ -21,7 +21,7 @@ const jsFiles = [
   'source/js/showBasket.js',
   'source/js/function.js',
   'source/js/app.js',
-  '!source/js/build.min.js',
+  '!source/js/build.min.js'
 ]
  
 gulp.task('scss', function () {

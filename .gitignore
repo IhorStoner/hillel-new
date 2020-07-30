@@ -1,5 +1,6 @@
 node_modules
 .vscode
+.build/
 .build/css/style.min.css
 .build/css/style.min.css.map
 .build/js/build.min.js
