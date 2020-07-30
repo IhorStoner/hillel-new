@@ -18,7 +18,6 @@ const jsFiles = [
   'source/js/createElement.js',
   'source/js/showSearch.js',
   'source/js/showFilter.js',
-  'source/js/basketArr.js',
   'source/js/showBasket.js',
   'source/js/function.js',
   'source/js/app.js',

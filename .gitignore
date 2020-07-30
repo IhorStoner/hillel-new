@@ -1,2 +1,10 @@
 node_modules
 .vscode
+.build/css/style.min.css
+.build/css/style.min.css.map
+.build/js/build.min.js
+.build/js/build.min.js.map
+.source/css/style.min.css
+.source/css/style.min.css.map
+.source/js/build.min.js
+.source/js/build.min.js.map
