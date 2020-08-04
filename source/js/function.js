@@ -120,6 +120,9 @@ const handleAddInBasket = (arr) => {
     
     const basketCounter = document.getElementById('basketCounter');
     basketCounter.innerHTML = basketLocalStorage.length;
+    
+    const basketBtn = document.getElementById('basketBtn');
+    basketBtn.addEventListener('click', handleShowBasket);
 }
 
 //нажатие на товар, переход на детальную информацию о товаре
