@@ -38,9 +38,29 @@ const handleShowBasket = () => {
     basketCounter.innerHTML = basketLocalStorage.length;
 
     // создаем карточки
+
+    const arrBasketStr = [];
     basketLocalStorage.forEach((item) => {
-        createBasketCard(item, productContainer)
+        let itemStr = JSON.stringify(item);
+        arrBasketStr.push(itemStr);
     })
+    // уникальный массив чтобы карточки в корзине по повторялись
+    const uniqueArr = getUniqueArr(arrBasketStr);
+
+    const arrBasketProducts = [];
+    uniqueArr.forEach((item) => {
+        let product = JSON.parse(item);
+        arrBasketProducts.push(product);
+    })
+
+    if(basketLocalStorage.length > 1) {
+        arrBasketProducts.forEach((item) => {
+            createBasketCard(item, productContainer)
+        })
+    } else {
+        createBasketCard(basketLocalStorage[0], productContainer)
+    }
+   
 
     const deleteProductBtn = document.querySelectorAll('#basketDeleteItemBtn');
     deleteProductBtn.forEach((item) => {
@@ -76,6 +96,20 @@ const handleShowBasket = () => {
 
 }
 
+const counterProduct = (item) => {
+    const basketLocalStorage = JSON.parse(localStorage.getItem('basket'));
+
+    let counterProduct = 0;
+    
+    basketLocalStorage.forEach((product) => {
+        if(item.id === product.id) {
+            counterProduct++;
+        }
+    })
+
+    return counterProduct;
+}
+
 const handleDeleteProduct = () => {
     const productId = event.target.getAttribute('data-id');
     let basketArr = JSON.parse(localStorage.getItem('basket'));
@@ -92,6 +126,8 @@ const handleDeleteProduct = () => {
 }
 
 const createBasketCard = (item, parent) => {
+    let counter = counterProduct(item);
+
     const productCard = document.createElement(`div`);
     productCard.classList.add(`productBasket__item`);
 
@@ -103,6 +139,10 @@ const createBasketCard = (item, parent) => {
         <h3 class="productBasket__title">
             ${item.name}
         </h3>
+        <p class="productBasket__counter-container">
+            <span class="productBasket__counter-title">Количество:</span>
+            <span class="productBasket__counter-counter" id="counter">${counter}</span>
+        </p>
         <p class="productBasket__price">
             ${item.price} грн
         </p>
@@ -110,8 +150,12 @@ const createBasketCard = (item, parent) => {
             <button class="productBasket__btnDelete btn btn--black" id="basketDeleteItemBtn" data-id="${item.id}">Убрать из корзины</button>
         </div>
     `;
-    
+
     parent.appendChild(productCard);
+}
+
+const getUniqueArr = (arr) => {
+    return Array.from(new Set(arr));
 }
 
 const getCountPrice = () => {
