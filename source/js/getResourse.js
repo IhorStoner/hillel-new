@@ -8,4 +8,4 @@ const getResource = async (url) => {
     return await res.json();
 };
 
-const sendRequest = (url, params = {}) => fetch(url, params).then(response => response.json);
+const sendRequest = (url, params = {}) => fetch(url, params).then(response => response.json());
