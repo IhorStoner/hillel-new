@@ -13,7 +13,6 @@ const start = () => {
     const firstResponse = document.querySelector(`.header .nav__link`).getAttribute(`data-category`);
 
     handlerNavLink();
-    showSearch();
     showBasket();
 
     //загрузка бритвы и лезвия как main page 
@@ -109,7 +108,7 @@ const createCard = (item, parent, arr) => {
 
 const handleAddInBasket = (arr) => {
     const productId = event.target.getAttribute('data-id');
-    
+
     const selectedProduct = arr.find((element) => {
         return element.id === Number(productId);
     });
@@ -123,6 +122,7 @@ const handleAddInBasket = (arr) => {
     
     const basketBtn = document.getElementById('basketBtn');
     basketBtn.addEventListener('click', handleShowBasket);
+
 }
 
 //нажатие на товар, переход на детальную информацию о товаре
@@ -168,10 +168,13 @@ const showDetailInfo = (item) => {
         </div>
         <div class="product-info__price-container">
             <p class="product-info__price">${item.price} грн</p>
-            <button class="btn btn--plus"></button>
+            <button class="btn btn--plus" data-id=${item.id} id='addInBasket'></button>
         </div>
     </div>
     `;
-
     parent.appendChild(productCard);
+    const itemArr = [item]
+    const addInBasket = document.getElementById('addInBasket');
+    addInBasket.addEventListener('click',handleAddInBasket.bind(null,itemArr));
+    basketBtn();
 }

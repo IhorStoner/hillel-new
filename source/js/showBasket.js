@@ -1,20 +1,32 @@
 const showBasket = () => {
-    const basketBtn = document.getElementById('basketBtn');
-    const basketCounter = document.getElementById('basketCounter');
+    basketProductCounter();
+    basketBtn();
+}
 
+// показываем товары, иначе показываем что товаров нет
+const basketBtn = () => {  
+    const basketBtn = document.getElementById('basketBtn');
+    const basketLocalStorage = JSON.parse(localStorage.getItem('basket'));
+    
+    if(basketLocalStorage.length > 0) {
+        basketBtn.removeEventListener('click',handleShowBasketNull)
+        basketBtn.addEventListener('click', handleShowBasket);
+    } else {
+        basketBtn.removeEventListener('click',handleShowBasket)
+        basketBtn.addEventListener('click', handleShowBasketNull);
+    }
+}
+
+const basketProductCounter = () => {
+    const basketCounter = document.getElementById('basketCounter');
     const basketLocalStorage = JSON.parse(localStorage.getItem('basket'));
 
     basketCounter.innerText = basketLocalStorage.length;
-
-    if(basketLocalStorage.length > 0) {
-        basketBtn.addEventListener('click', handleShowBasket);
-    } else {
-        basketBtn.addEventListener('click', handleShowBasketNull);
-    }
-
 }
 
 const handleShowBasketNull = () => {
+    // показываем что нету товаров в корзине
+    basketBtn();
     const shopContent = document.querySelector('.shop__flex-container');
     shopContent.innerHTML = ' ';
 
@@ -23,9 +35,13 @@ const handleShowBasketNull = () => {
     shopContent.appendChild(productContainer);
 
     productContainer.innerHTML = '<h2 class="productBasket__basket-null">Ваша корзина пуста,начните покупки!</h2>';
+
+    basketProductCounter();
 }
 
 const handleShowBasket = () => {
+
+    basketProductCounter();
     const shopContent = document.querySelector('.shop__flex-container');
     shopContent.innerHTML = ' ';
 
@@ -33,11 +49,8 @@ const handleShowBasket = () => {
     productContainer.classList.add('productBasket');
     shopContent.appendChild(productContainer);
 
-    const basketLocalStorage = JSON.parse(localStorage.getItem('basket'));
-    const basketCounter = document.getElementById('basketCounter');
-    basketCounter.innerHTML = basketLocalStorage.length;
-
     // создаем карточки
+    const basketLocalStorage = JSON.parse(localStorage.getItem('basket'));
 
     const arrBasketStr = [];
     basketLocalStorage.forEach((item) => {
@@ -52,7 +65,7 @@ const handleShowBasket = () => {
         let product = JSON.parse(item);
         arrBasketProducts.push(product);
     })
-
+    // если товара больше чем 1, показать товары без повторений, иначе показать только первый товар
     if(basketLocalStorage.length > 1) {
         arrBasketProducts.forEach((item) => {
             createBasketCard(item, productContainer)
@@ -60,40 +73,13 @@ const handleShowBasket = () => {
     } else {
         createBasketCard(basketLocalStorage[0], productContainer)
     }
-   
 
     const deleteProductBtn = document.querySelectorAll('#basketDeleteItemBtn');
     deleteProductBtn.forEach((item) => {
         item.addEventListener('click',handleDeleteProduct);
     })
-
-    // создаем чек(сумма + кнопка оформить)
-    const checkoutContainerInfo = {
-        type: "div",
-        className: 'checkout', 
-        parent: shopContent,
-    }
-
-    const checkoutContainer = createElement(checkoutContainerInfo);
-
-    const allPriceInfo = {
-        type: "div",
-        className: 'checkout__price', 
-        parent: checkoutContainer,
-        text: `Цена: ${getCountPrice()} грн`,
-    }
-
-    const allPrice = createElement(allPriceInfo);
-
-    const checkoutBtnInfo = {
-        type: "button",
-        className: 'btn btn--orange', 
-        parent: checkoutContainer,
-        text: 'Оформить заказ',
-    }
-
-    const checkoutBtn = createElement(checkoutBtnInfo);
-
+    // создаем чек(сумма + кнопка оформить) formCheckout.js
+    formCheckout();
 }
 
 const counterProduct = (item) => {
@@ -112,7 +98,7 @@ const counterProduct = (item) => {
 
 const handleDeleteProduct = () => {
     const productId = event.target.getAttribute('data-id');
-    let basketArr = JSON.parse(localStorage.getItem('basket'));
+    const basketArr = JSON.parse(localStorage.getItem('basket'));
 
     const selectedProduct = basketArr.find((product) => {
         return product.id === Number(productId);
@@ -122,7 +108,14 @@ const handleDeleteProduct = () => {
     basketArr.splice(indexProduct,1);
 
     localStorage.setItem('basket', JSON.stringify(basketArr));
-    handleShowBasket();
+
+    const basketArrCheck = JSON.parse(localStorage.getItem('basket'));
+    if(basketArrCheck.length > 0) {
+        handleShowBasket();
+    } else {
+        handleShowBasketNull();
+    }
+    
 }
 
 const createBasketCard = (item, parent) => {

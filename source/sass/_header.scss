@@ -24,12 +24,12 @@
 .nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-right: 5px;
     margin-left: 5px;
 
     &__link {
         @include text;
-        width: 100%;
         text-align: center;
         position: relative;
         border: 2px solid #FF7A00;
@@ -54,20 +54,35 @@
     }
 }
 
-.connection {
-    width: 440px;
+
+
+.basket {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
+    width: 60px;
+    position: relative;
 
     &__btn {
-        width: 118px;
+        width: 40px;
         height: 40px;
-        padding: 5px;
+        background-color: transparent;
+        border: none;
+        background-image: url(../assets/img/svg/basket.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        cursor: pointer;
+        outline: none;
+    }
 
-        &:first-child {
-            margin-right: 5px;
-        }
+    &__counter {
+        font-family: $main-font-family;
+        font-weight: normal;
+        font-size: 1.5rem;
+        line-height: 1.75rem;
+        text-transform: capitalize;
+        color: #FFF;
+        margin-left: 10px;
     }
 }
 
