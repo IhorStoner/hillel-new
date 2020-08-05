@@ -34,148 +34,135 @@ function createFilter(category, parentElem) {
         filterCheck.remove();
     }
 
-    const filters = {
+    const filtersElem = createElement({
         type: "aside",
         className: 'filters',
         id: 'filters',
         parent: parentElem,
-    }
-    const filtersElem = createElement(filters);
+    })
 
-    const  filtersHeader = {
+    const  filtersHeaderElem = createElement({
         type: "div",
         className: 'filters__header',
         parent: filtersElem,
-    }
-    const filtersHeaderElem = createElement(filtersHeader);
+    })
 
-    const filtersTitle = {
+    const filtersTitle = createElement({
         type: "h2",
         className: 'shop__title',
-        text: 'Фильтр по брендам',
+        text: 'Фильтр',
         parent: filtersHeaderElem,
-    }
-    createElement(filtersTitle);
+    })
 
-    const filtersContent = {
+    const filtersContentElem = createElement({
         type: "div",
         className: 'filters__content',
         parent: filtersElem,
-    }
-    const filtersContentElem = createElement(filtersContent);
+    })
 
-    const filtersBlock = {
+    const filtersBlockElem = createElement({
         type: "div",
         className: 'filters__block',
         parent: filtersContentElem,
-    }
-    const filtersBlockElem = createElement(filtersBlock);
+    })
 
-    const filtersBlockTitle = {
+    const filtersBlockTitle = createElement({
         type: "h2",
-        text: "Choose something",
+        text: "По брендам",
         className: 'filters__title',
         parent: filtersBlockElem,
-    }
-    createElement(filtersBlockTitle);
+    })
 
     //create checkbox
     const unqieBrandNameArr = getBrandName(category);
 
     unqieBrandNameArr.forEach(function(item) {
-        const chooseFilter = {
+        const chooseFilterElem = createElement({
             type: "div",
             className: 'choose-service__item filters__item',
             parent: filtersBlockElem,
-        }
-        const chooseFilterElem = createElement(chooseFilter);
+        })
     
-        const filterInput1 = {
+        const filterInput1 = createElement({
             type: "input",
             attrs: {name: item,type: 'checkbox',},
             id: item,
             className: 'choose-service__input',
             parent: chooseFilterElem,
-        }
-        createElement(filterInput1);
+        })
     
-        const labelFiltr1 = {
+        const labelFiltr1 = createElement({
             type: "label",
             forAttr: item,
             className: 'choose-service__checkbox',
             parent: chooseFilterElem,
-        }
-        createElement(labelFiltr1);
+        })
     
-        const textFiltr1 = {
+        const textFiltr1 = createElement({
             type: "label",
             forAttr: item,
             className: 'choose-master__text',
             text: item,
             parent: chooseFilterElem,
-        }
-        createElement(textFiltr1);
+        })
     })
 
     
     // filter radio title
-    createElement(filtersBlockTitle);
+    const filtersBlockTitle2 = createElement({
+        type: "h2",
+        text: "По цене",
+        className: 'filters__title',
+        parent: filtersBlockElem,
+    })
 
     // filter radio create
     filtersRadioData.forEach(function(item) {
-        const filterPrice = {
+        const filterPriceElem = createElement({
             type: "div",
             className: 'choose-service__item filters__item',
             parent: filtersBlockElem,
-        }
-        const filterPriceElem = createElement(filterPrice);
+        })
     
-        const filterRadio = {
+        const filterRadio = createElement({
             type: "input",
             attrs: {name: `choose-master__item`,type: 'radio'},
             id: `filter-${filtersRadioData.indexOf(item)}`,
             className: 'choose-master__radio',
             parent: filterPriceElem,
-        }
-        createElement(filterRadio);
+        })
     
-        const labelFiltrRadio = {
+        const labelFiltrRadio = createElement({
             type: "label",
             forAttr: `filter-${filtersRadioData.indexOf(item)}`,
             className: 'choose-master__label',
             parent: filterPriceElem,
-        }
-        createElement(labelFiltrRadio);
+        })
     
-        const textFiltrRadio = {
+        const textFiltrRadio = createElement({
             type: "label",
             forAttr: `filter-${filtersRadioData.indexOf(item)}`,
             className: 'choose-master__text',
             text: item.value, 
             parent: filterPriceElem,
-        }
-
-        createElement(textFiltrRadio);
+        })
     })
 
     // btn submit
-    const btnOkContainer = {
+    const btnOkElem = createElement({
         type: "div",
         className: 'filters__btn-submit', 
         parent: filtersElem,
-    }
+    })
 
-    const btnOkElem = createElement(btnOkContainer);
-
-    const btnOk = {
+    const btnSubmitFilter = createElement({
         type: "button",
         className: 'btn btn--black',
         id: 'btnShowFilter',
         text: 'Фильтр',
         parent: btnOkElem,
-    }
+    })
 
-    const btnSubmitFilter = createElement(btnOk);
     btnSubmitFilter.addEventListener('click',handleCheckFilter)
 }
 
@@ -194,7 +181,7 @@ function handleCheckFilter() {
         }
     })
 
-    //filter lohika
+    //логика фильтра
     getResource(category)
         .then(data => {
             const dataCategory = [];
