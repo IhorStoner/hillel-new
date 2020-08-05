@@ -57,11 +57,7 @@ const createCards = (arr, parent, category) => {
   if (checkCards) {
     checkCards.remove();
   }
-
-  const shopCards = document.createElement(`div`);
-  shopCards.classList.add(`shop__cards`);
-  shopCards.id = category;
-  parent.appendChild(shopCards);
+  const shopCards = createElement({ className: `shop__cards`, id: category, parent: parent });
 
   arr.forEach((item) => {
     createCard(item, shopCards, arr);
@@ -69,28 +65,23 @@ const createCards = (arr, parent, category) => {
 };
 
 const createCard = (item, parent, arr) => {
-  const productCard = document.createElement(`div`);
-
-  productCard.classList.add(`product`);
-
-  productCard.innerHTML = `
-
-        <div class="product__img-container">
-                <img src="${item.img}" alt="" class="product__img">
-        </div>
-        <div class="product__content">
-                <h3 class="product__title">
-                    ${item.name}
-                </h3>
-                <p class="product__price">
-                    ${item.price} грн
-                </p>
-                <div class="product__buttons">
-                    <button class="btn btn--black" data-id=${item.id}>Посмотреть</button>
-                    <button class="btn btn--plus"></button>
-                </div>
-`;
-  parent.appendChild(productCard);
+  const productCard = createElement({
+    className: `product`, parent: parent,
+    html: `<div class="product__img-container">
+            <img src="${item.img}" alt="" class="product__img">
+    </div>
+    <div class="product__content">
+            <h3 class="product__title">
+                ${item.name}
+            </h3>
+            <p class="product__price">
+                ${item.price} грн
+            </p>
+            <div class="product__buttons">
+                <button class="btn btn--black" data-id=${item.id}>Посмотреть</button>
+                <button class="btn btn--plus"></button>
+            </div>`
+  })
 
   //исправить !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   document.querySelectorAll(`.product__img`).forEach((item) => {
@@ -118,39 +109,36 @@ const handlerProductItem = (arr, event) => {
   showDetailInfo(selectedProduct);
 };
 
-//отображение страници с товаром
+//отображение страницы с товаром
 const showDetailInfo = (item) => {
   document.querySelector(
     `.shop .wrapper .shop-content .shop__flex-container`
   ).innerHTML = ``;
   const parent = document.querySelector(`.shop__flex-container`);
-  const productCard = document.createElement(`div`);
 
-  productCard.classList.add(`product-info`);
-
-  productCard.innerHTML = `
-    <div class="product-info__img">
-        <img src=${item.img} alt="product img"/>
-    </div>
-    <div class="product-info__info">
-        <div class="product-info__link-container">
-            <a class="product-info__link product-info__link--active" id="descriptions">Описание</a>
-            <a class="product-info__link" id="reviews">Отзывы</a>
-        </div>
-        <div class="product-info__descriptions">
-            <div class="product-info__title-container">
-                 <h2 class="product-info__title">${item.name}</h2>
-                <p class="product-info__description">${item.descriptions}</p>
-             </div>
-            <div class="product-info__price-container">
-                 <p class="product-info__price">${item.price} грн</p>
-                <button class="btn btn--plus"></button>
-            </div>
-        </div>
-    </div>
-    `;
-
-  parent.appendChild(productCard);
+  createElement({
+    className: `product-info`,
+    parent: parent,
+    html: `<div class="product-info__img">
+      <img src=${item.img} alt="product img"/>
+  </div>
+  <div class="product-info__info">
+      <div class="product-info__link-container">
+          <a class="product-info__link product-info__link--active" id="descriptions">Описание</a>
+          <a class="product-info__link" id="reviews">Отзывы</a>
+      </div>
+      <div class="product-info__descriptions">
+          <div class="product-info__title-container">
+               <h2 class="product-info__title">${item.name}</h2>
+              <p class="product-info__description">${item.descriptions}</p>
+           </div>
+          <div class="product-info__price-container">
+               <p class="product-info__price">${item.price} грн</p>
+              <button class="btn btn--plus"></button>
+          </div>
+      </div>
+  </div>`,
+  });
 
   document
     .getElementById(`reviews`)
@@ -161,66 +149,88 @@ const showDetailInfo = (item) => {
 };
 
 const handlerReview = (item) => {
-  const descriptions = document.getElementById(`descriptions`);
-  descriptions.classList.remove(`product-info__link--active`);
-  const reviews = document.getElementById(`reviews`);
-  reviews.classList.add(`product-info__link--active`);
-
   const parent = document.querySelector(`.product-info__descriptions`);
-  parent.innerHTML = "";
+  parent.innerHTML = '';
 
-  parent.innerHTML = `<div class="appointment-form__data"></div>
-    <div class="popup__comment-container">
+  activeLink(`reviews`, `descriptions`);
+
+  parent.innerHTML = `<div class="popup__comment-container">
+  <div class="form-group">
+  <input type="email" class="form-control" id="emailForm" placeholder="Enter your email...">
+  </div>
         <textarea class="popup__comment" name="review" id="review" placeholder="Please leave your review..." cols="72" rows="5"></textarea>
     </div>
     </div>
     <div class="appointment-form__btn">
     <button type="submit" class="btn btn--orange" id="btnSend">Отправить</button>
-    <div class="commits"></div>
     </div> 
+    <div class="comments"></div>
 `;
-    // const parent = document.querySelector('.commits');
-    
-    // getResource("commit").then(data => data.forEach(elem =>{
-    //     const element = document.createElement('div');
-    //     element.innerHTML = elem.text;
-    //     parent.appendChild(element);  
-    // }));
+  const parentCommit = document.querySelector('.comments');
 
-  document.querySelector(`#btnSend`).addEventListener(`click`, function (e) {
-    e.preventDefault();
-    const text = document.querySelector(`#review`).value;
-    const obj = {};
-    obj.texts = text;
-    obj.productId = item.id;
+  showComments(parentCommit, item);
 
-    const req = sendRequest("http://localhost:3000/commit", {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(obj)
-    })
-      .then((data) => console.log(data))
-      .catch((err) => console.log(err));
-  });
-
-   getResource("commit")
-   .then(data => data.forEach(elem =>{
-        const element = document.createElement('div');
-        element.innerHTML = elem.texts;
-        parent.appendChild(element);  
-    }));
+  document.querySelector(`#btnSend`).addEventListener(`click`, handlerPostSend.bind(null, parentCommit, item))
 };
 
 const handlerDescriptions = (item) => {
-  const descriptions = document.getElementById(`descriptions`);
-  descriptions.classList.add(`product-info__link--active`);
-  const reviews = document.getElementById(`reviews`);
-  reviews.classList.remove(`product-info__link--active`);
-
   const parent = document.querySelector(`.product-info__descriptions`);
   parent.innerHTML = "";
 
+  activeLink(`descriptions`, `reviews`)
+
   showDetailInfo(item);
 };
+
+const handlerPostSend = (parent, item, e) => {
+  e.preventDefault();
+  const email = document.getElementById('emailForm').value;
+  const text = document.querySelector(`#review`).value;
+
+  const data = {};
+  data.texts = text;
+  data.email = email;
+  data.productId = item.id;
+
+  createElement({
+    html: `<div class="container">
+    <p>${email}</p>
+    <p class="lead">${text}</p>
+  </div>`, parent: parent, className: 'jumbotron jumbotron-fluid'
+  });
+
+  sendRequest("http://localhost:3000/commit", {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+
+
+}
+
+const showComments = (parent, item) => {
+  getResource("commit")
+    .then(data => data.forEach(elem => {
+
+      if (elem.productId !== item.id) {
+        return;
+      }
+
+      createElement({
+        html: `<div class="container">
+        <p>${elem.email}</p>
+        <p class="lead">${elem.texts}</p>
+      </div>`,
+        parent: parent,
+        className: 'jumbotron jumbotron-fluid'
+      });
+    }));
+}
+
+const activeLink = (activeElementId, unActiveElementId) => {
+  document.getElementById(activeElementId).classList.add(`product-info__link--active`);
+
+  document.getElementById(unActiveElementId).classList.remove(`product-info__link--active`);
+}
