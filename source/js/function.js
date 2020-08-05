@@ -1,4 +1,5 @@
 "use strict";
+"use strict";
 
 const start = () => {
     // localstorage data
@@ -90,7 +91,7 @@ const createCard = (item, parent, arr) => {
                     ${item.price} грн
                 </p>
                 <div class="product__buttons">
-                    <button class="btn btn--black">Посмотреть</button>
+                    <button class="btn btn--black" data-id=${item.id}>Посмотреть</button>
                     <button class="btn btn--plus" id="addInBasket" data-id=${item.id}></button>
                 </div>
 `;
@@ -122,7 +123,6 @@ const handleAddInBasket = (arr) => {
     
     const basketBtn = document.getElementById('basketBtn');
     basketBtn.addEventListener('click', handleShowBasket);
-
 }
 
 //нажатие на товар, переход на детальную информацию о товаре
@@ -159,8 +159,8 @@ const showDetailInfo = (item) => {
     </div>
     <div class="product-info__info">
         <div class="product-info__link-container">
-            <a class="product-info__link product-info__link--active">Описание</a>
-            <a class="product-info__link">Отзывы</a>
+            <a class="product-info__link product-info__link--active" id="descriptions">Описание</a>
+            <a class="product-info__link" id="reviews">Отзывы</a>
         </div>
         <div class="product-info__title-container">
             <h2 class="product-info__title">${item.name}</h2>
@@ -177,4 +177,103 @@ const showDetailInfo = (item) => {
     const addInBasket = document.getElementById('addInBasket');
     addInBasket.addEventListener('click',handleAddInBasket.bind(null,itemArr));
     basketBtn();
+
+    document
+        .getElementById(`reviews`)
+        .addEventListener(`click`, handlerReview.bind(null, item));
+    document
+        .getElementById(`descriptions`)
+        .addEventListener(`click`, handlerDescriptions.bind(null, item));
+}
+
+
+const handlerReview = (item) => {
+  const parent = document.querySelector(`.product-info__description`);
+  parent.innerHTML = ' ';
+
+  activeLink(`reviews`, `descriptions`);
+
+    parent.innerHTML = `
+        <div class="popup__comment-container">
+            <div class="form-group">
+                <input type="email" class="form-control" id="emailForm" placeholder="Enter your email...">
+            </div>
+                <textarea class="popup__comment" name="review" id="review" placeholder="Please leave your review..." cols="72" rows="5"></textarea>
+            </div>
+        </div>
+        <div class="appointment-form__btn">
+            <button type="submit" class="btn btn--orange" id="btnSend">Отправить</button>
+        </div> 
+        <div class="comments"></div>
+    `;
+  const parentCommit = document.querySelector('.comments');
+
+    // добавление товара в корзину
+    showComments(parentCommit, item);
+
+    document.querySelector(`#btnSend`).addEventListener(`click`, handlerPostSend.bind(null, parentCommit, item))
+};
+
+const handlerDescriptions = (item) => {
+  const parent = document.querySelector(`.product-info__description`);
+  parent.innerHTML = " ";
+
+  activeLink(`descriptions`, `reviews`);
+  parent.innerHTML = `${item.descriptions}`
+}
+
+//нажатие на товар, переход на детальную информацию о товаре
+
+const handlerPostSend = (parent, item, e) => {
+  e.preventDefault();
+  const email = document.getElementById('emailForm').value;
+  const text = document.querySelector(`#review`).value;
+
+  const data = {};
+  data.texts = text;
+  data.email = email;
+  data.productId = item.id;
+
+  createElement({
+    html: `
+    <div class="container">
+        <p>${email}</p>
+        <p class="lead">${text}</p>
+    </div>`, parent: parent, className: 'jumbotron jumbotron-fluid'
+  });
+
+  sendRequest("http://localhost:3000/commit", {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+}
+
+const showComments = (parent, item) => {
+  getResource("commit")
+    .then(data => data.forEach(elem => {
+
+    if (elem.productId !== item.id) {
+        return;
+    }
+
+    createElement({
+        html: `
+            <div class="container">
+                <p>${elem.email}</p>
+                <p class="lead">${elem.texts}</p>
+            </div>
+        `,
+        parent: parent,
+        className: 'jumbotron jumbotron-fluid',
+        });
+    }));
+}
+
+const activeLink = (activeElementId, unActiveElementId) => {
+  document.getElementById(activeElementId).classList.add(`product-info__link--active`);
+
+  document.getElementById(unActiveElementId).classList.remove(`product-info__link--active`);
 }
