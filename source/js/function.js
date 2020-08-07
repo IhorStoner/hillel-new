@@ -205,17 +205,20 @@ const handlerReview = (item) => {
         </h2>
           <div class="form-group">
               <input type="email" class="form-control commentForm__inputEmail" id="emailForm" placeholder="Напишите вашу почту">
+              <span></span>
           </div>
-              <textarea id="commentText" class="popup__comment commentForm__inputComment" name="review" id="review" placeholder="Напишите ваш отзыв" cols="72" rows="5"></textarea>
+              <textarea id="commentText" class="popup__comment commentForm__inputComment" name="review" placeholder="Напишите ваш отзыв" cols="72" rows="5"></textarea>
+              <span></span>
           </div>
       </div>
     </form>
     <div class="appointment-form__btn">
         <button type="submit" class="btn btn--orange commentForm__btn" id="btnSend">Отправить</button>
     </div> 
-    
+    <div class="container commentForm__comment">
+    </div>
     `;
-  const parentCommit = document.querySelector(".comments");
+  const parentCommit = document.querySelector(".commentForm__comment");
 
   // добавление товара в корзину
   showComments(parentCommit, item);
@@ -240,7 +243,7 @@ const handlerPostSend = (parent, item, e) => {
 
 
   const email = document.getElementById("emailForm");
-  const text = document.getElementById(`commentText`);
+  const text = document.getElementById('commentText');
   const time = moment().format('MMMM Do YYYY, h:mm:ss a');
 
   if (!commitValid(text, email)) {
@@ -258,21 +261,19 @@ const handlerPostSend = (parent, item, e) => {
 
     createElement({
       html: `
-    <div class="container commentForm__comment">
         <p class="commentForm__commentItem">${email.value}</p>
         <p class="lead commentForm__commentItem">${text.value}</p>
         <p class="lead commentForm__commentItem">${time}</p>
-    </div>`,
+    `,
       parent: parent,
     });
   }else{
     const element = createElement({
       html: `
-    <div class="container">
         <p class="commentForm__commentItem">${email.value}</p>
         <p class="lead commentForm__commentItem">${text.value}</p>
         <p class="lead commentForm__commentItem">${time}</p>
-    </div>`,
+  `,
       // parent: parent,
     });
 
@@ -302,11 +303,11 @@ const showComments = (parent, item) => {
       }
 
       createElement({
-        html: `<div class="container">
+        html: `
                 <p class="commentForm__commentItem">${elem.email}</p>
                 <p class="lead commentForm__commentItem">${elem.texts}</p>
                 <p class="lead commentForm__commentItem">${elem.time}</p>
-            </div>`,
+           `,
         parent: parent,
       });
     })
