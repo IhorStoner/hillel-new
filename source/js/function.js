@@ -234,10 +234,11 @@ const handlerDescriptions = (item) => {
 const handlerPostSend = (parent, item, e) => {
   e.preventDefault();
 
+
   const email = document.getElementById("emailForm");
   const text = document.getElementById(`commentText`);
   const time = moment().format('MMMM Do YYYY, h:mm:ss a');
-  
+
   if (!commitValid(text, email)) {
     return;
   }
@@ -245,19 +246,38 @@ const handlerPostSend = (parent, item, e) => {
   const data = {};
   data.texts = text.value;
   data.email = email.value;
-  data.time = time; 
+  data.time = time;
   data.productId = item.id;
 
-  createElement({
-    html: `
+  console.log(parent.children.length)
+  if (parent.children.length === 0) {
+
+    createElement({
+      html: `
     <div class="container">
         <p>${email.value}</p>
         <p class="lead">${text.value}</p>
         <p class="lead">${time}</p>
     </div>`,
-    parent: parent,
-    className: "jumbotron jumbotron-fluid",
-  });
+      parent: parent,
+      className: "jumbotron jumbotron-fluid",
+    });
+  }else{
+    const element = createElement({
+      html: `
+    <div class="container">
+        <p>${email.value}</p>
+        <p class="lead">${text.value}</p>
+        <p class="lead">${time}</p>
+    </div>`,
+      // parent: parent,
+      className: "jumbotron jumbotron-fluid",
+    });
+
+    parent.insertBefore(element, parent.firstChild)
+  }
+
+
 
   sendRequest("http://localhost:3000/commit", {
     method: "POST",
@@ -273,7 +293,8 @@ const handlerPostSend = (parent, item, e) => {
 
 const showComments = (parent, item) => {
   getResource("commit").then((data) =>
-    data.forEach((elem) => {
+  
+    data.reverse().forEach((elem) => {
       if (elem.productId !== item.id) {
         return;
       }
