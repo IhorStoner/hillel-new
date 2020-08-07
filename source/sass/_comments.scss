@@ -1,0 +1,56 @@
+.commentForm {
+    max-width: 100%;
+    font-size: $main-font-size;
+    font-family: $main-font-family;
+
+    &__commentItem {
+        font-size: $main-font-size;
+        font-family: $main-font-family;
+        margin-bottom: 5px;
+    }
+
+    &__comment {
+        margin-bottom: 10px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__inputEmail {
+        margin-bottom: 5px;
+
+        &:focus {
+            border-color: #FF7A00;
+        }
+    }
+
+    &__btn {
+        padding: 5px;
+    }
+
+    &__inputComment {
+        max-width: 100%;
+        resize: none;
+    }
+
+    &__title {
+        color: #000;
+        font-family: $main-font-family;
+        margin-bottom: 5px;
+        font-size: 1.5rem;
+    }
+
+    &__commentsContainer {
+        font-family: $main-font-family;
+        background-color: antiquewhite;
+        padding: 2px;
+        padding-left: 5px;
+    }
+}
+
+// .jumbotron{
+//     border: 4px double #888888;
+//     background: antiquewhite;
+//     padding: 10px;
+// }

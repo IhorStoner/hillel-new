@@ -161,14 +161,13 @@ const showDetailInfo = (item) => {
             <a class="product-info__link product-info__link--active" id="descriptions">Описание</a>
             <a class="product-info__link" id="reviews">Отзывы</a>
         </div>
-        
-        <div class="product-info__title-container">
-            <h2 class="product-info__title">${item.name}</h2>
-            <p class="product-info__description">${item.descriptions}</p>
-        </div>
         <div class="product-info__price-container">
             <p class="product-info__price">${item.price} грн</p>
             <button class="btn btn--plus" data-id=${item.id} id='addInBasket'></button>
+        </div>
+        <div class="product-info__title-container">
+            <h2 class="product-info__title">${item.name}</h2>
+            <p class="product-info__description">${item.descriptions}</p>
         </div>
     </div>
     `;
@@ -196,20 +195,25 @@ const handlerReview = (item) => {
 
   parent.innerHTML = `
     <form name="commentForm">
-        <div class="popup__comment-container">
-            <div class="form-group">
-                <input type="email" class="form-control" id="emailForm" placeholder="Enter your email...">
-                <span></span>
-            </div>
-                <textarea id="commentText" class="popup__comment" name="review" id="review" placeholder="Please leave your review..." cols="72" rows="5"></textarea>
-                <span></span>
-            </div>
-        </div>
-        </form>
-        <div class="appointment-form__btn">
-            <button type="submit" class="btn btn--orange" id="btnSend">Отправить</button>
-        </div> 
-        <div class="comments"></div>
+      <h2 class="commentForm__title">
+        Отзывы:
+      </h2>
+      <div class="comments commentForm__commentsContainer"></div> 
+      <div class="popup__comment-container">
+        <h2 class="commentForm__title">
+          Оставьте свой отзыв:
+        </h2>
+          <div class="form-group">
+              <input type="email" class="form-control commentForm__inputEmail" id="emailForm" placeholder="Напишите вашу почту">
+          </div>
+              <textarea id="commentText" class="popup__comment commentForm__inputComment" name="review" id="review" placeholder="Напишите ваш отзыв" cols="72" rows="5"></textarea>
+          </div>
+      </div>
+    </form>
+    <div class="appointment-form__btn">
+        <button type="submit" class="btn btn--orange commentForm__btn" id="btnSend">Отправить</button>
+    </div> 
+    
     `;
   const parentCommit = document.querySelector(".comments");
 
@@ -254,24 +258,22 @@ const handlerPostSend = (parent, item, e) => {
 
     createElement({
       html: `
-    <div class="container">
-        <p>${email.value}</p>
-        <p class="lead">${text.value}</p>
-        <p class="lead">${time}</p>
+    <div class="container commentForm__comment">
+        <p class="commentForm__commentItem">${email.value}</p>
+        <p class="lead commentForm__commentItem">${text.value}</p>
+        <p class="lead commentForm__commentItem">${time}</p>
     </div>`,
       parent: parent,
-      className: "jumbotron jumbotron-fluid",
     });
   }else{
     const element = createElement({
       html: `
     <div class="container">
-        <p>${email.value}</p>
-        <p class="lead">${text.value}</p>
-        <p class="lead">${time}</p>
+        <p class="commentForm__commentItem">${email.value}</p>
+        <p class="lead commentForm__commentItem">${text.value}</p>
+        <p class="lead commentForm__commentItem">${time}</p>
     </div>`,
       // parent: parent,
-      className: "jumbotron jumbotron-fluid",
     });
 
     parent.insertBefore(element, parent.firstChild)
@@ -301,12 +303,11 @@ const showComments = (parent, item) => {
 
       createElement({
         html: `<div class="container">
-                <p>${elem.email}</p>
-                <p class="lead">${elem.texts}</p>
-                <p class="lead">${elem.time}</p>
+                <p class="commentForm__commentItem">${elem.email}</p>
+                <p class="lead commentForm__commentItem">${elem.texts}</p>
+                <p class="lead commentForm__commentItem">${elem.time}</p>
             </div>`,
         parent: parent,
-        className: "jumbotron jumbotron-fluid",
       });
     })
   );
