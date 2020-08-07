@@ -249,17 +249,34 @@ const handlerPostSend = (parent, item, e) => {
   data.time = time;
   data.productId = item.id;
 
- 
-  createElement({
-    html: `
+  console.log(parent.children.length)
+  if (parent.children.length === 0) {
+
+    createElement({
+      html: `
     <div class="container">
         <p>${email.value}</p>
         <p class="lead">${text.value}</p>
         <p class="lead">${time}</p>
     </div>`,
-    parent: parent,
-    className: "jumbotron jumbotron-fluid",
-  });
+      parent: parent,
+      className: "jumbotron jumbotron-fluid",
+    });
+  }else{
+    const element = createElement({
+      html: `
+    <div class="container">
+        <p>${email.value}</p>
+        <p class="lead">${text.value}</p>
+        <p class="lead">${time}</p>
+    </div>`,
+      // parent: parent,
+      className: "jumbotron jumbotron-fluid",
+    });
+
+    parent.insertBefore(element, parent.firstChild)
+  }
+
 
 
   sendRequest("http://localhost:3000/commit", {
@@ -270,13 +287,14 @@ const handlerPostSend = (parent, item, e) => {
     body: JSON.stringify(data),
   });
 
-  // document.commentForm.reset();
+  document.commentForm.reset();
 
 };
 
 const showComments = (parent, item) => {
   getResource("commit").then((data) =>
-    data.forEach((elem) => {
+  
+    data.reverse().forEach((elem) => {
       if (elem.productId !== item.id) {
         return;
       }
