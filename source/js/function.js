@@ -76,6 +76,7 @@ const createCard = (item, parent, arr) => {
   const productCard = document.createElement(`div`);
 
   productCard.classList.add(`product`);
+  productCard.classList.add(`shop__product`);
 
   productCard.innerHTML = `
 
@@ -194,7 +195,7 @@ const handlerReview = (item) => {
   activeLink(`reviews`, `descriptions`);
 
   parent.innerHTML = `
-    <form name="commentForm">
+    <form name="commentForm ">
       <h2 class="commentForm__title">
         Отзывы:
       </h2>
