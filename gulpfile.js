@@ -32,7 +32,7 @@ gulp.task('scss', function () {
     .pipe(csso())
     .pipe(rename('style.min.css'))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('source/css'))
+    // .pipe(gulp.dest('source/css'))
     .pipe(gulp.dest('build/css'))
 });
 
@@ -68,7 +68,7 @@ gulp.task('js',() => {
     .pipe(uglify())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('build/js'))
-    .pipe(gulp.dest('source/js'))
+    // .pipe(gulp.dest('source/js'))
 })
 
 gulp.task('watchJs', function () {

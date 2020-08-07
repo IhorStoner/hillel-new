@@ -1,3 +1,4 @@
+"use strict"
 //асинхронный запрос, нужно установить json-server
 const getResource = async (url) => {
     const res = await fetch(`http://localhost:3000/${url}`);
