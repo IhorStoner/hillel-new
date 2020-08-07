@@ -281,7 +281,7 @@ const commitValid = (element1, element2) => {
   const emailRegExp = /^\w+@\w+\.\w+/;
   const emailMsg = 'Введите коректный адрес электронной почты';
 
-  if (!validateFormElements(element2, emailRegExp, emailMsg) || !checkIfEmpty(element1)) {
+  if (!validateFormElements(element2, emailRegExp, emailMsg) || checkIfEmpty(element1)) {
     checkIfEmpty(element1)
     return;
   }

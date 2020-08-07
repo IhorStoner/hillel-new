@@ -234,10 +234,11 @@ const handlerDescriptions = (item) => {
 const handlerPostSend = (parent, item, e) => {
   e.preventDefault();
 
+
   const email = document.getElementById("emailForm");
   const text = document.getElementById(`commentText`);
   const time = moment().format('MMMM Do YYYY, h:mm:ss a');
-  
+
   if (!commitValid(text, email)) {
     return;
   }
@@ -245,9 +246,10 @@ const handlerPostSend = (parent, item, e) => {
   const data = {};
   data.texts = text.value;
   data.email = email.value;
-  data.time = time; 
+  data.time = time;
   data.productId = item.id;
 
+ 
   createElement({
     html: `
     <div class="container">
@@ -259,6 +261,7 @@ const handlerPostSend = (parent, item, e) => {
     className: "jumbotron jumbotron-fluid",
   });
 
+
   sendRequest("http://localhost:3000/commit", {
     method: "POST",
     headers: {
@@ -267,7 +270,7 @@ const handlerPostSend = (parent, item, e) => {
     body: JSON.stringify(data),
   });
 
-  document.commentForm.reset();
+  // document.commentForm.reset();
 
 };
 
