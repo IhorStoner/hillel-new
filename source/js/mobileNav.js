@@ -1,6 +1,9 @@
 const showMobileNav = () => {
+    let width = document.body.clientWidth;
+
     const btnOpen = document.querySelector('.header__nav-open');
     let navContent = document.querySelector('.nav-mobile');
+
     navContent.style.display = 'none';
 
     btnOpen.addEventListener('click',handleOpenNav);
@@ -14,11 +17,12 @@ const showMobileNav = () => {
 
 const handleOpenNav = () => {
     const navContent = document.querySelector('.nav-mobile');
-    let checkNavContent = navContent.style.display;
 
-    if(checkNavContent === 'none') {
-        navContent.style.display = 'flex';
-    } else {
-        navContent.style.display = 'none';
+    if(navContent) {
+        if(navContent.style.display === 'none') {
+            navContent.style.display = 'flex';
+        } else {
+            navContent.style.display = 'none';
+        }
     }
 }

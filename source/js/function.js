@@ -13,10 +13,10 @@ const start = () => {
   const firstResponse = document
     .querySelector(`.header .nav__link`)
     .getAttribute(`data-category`);
-
-  handlerNavLink();
+  
+  handlerNavLink(); //товары
   showMobileNav();
-  showBasket();
+  showBasket(); //корзина
 
   //загрузка бритвы и лезвия как main page
 
