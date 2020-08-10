@@ -15,6 +15,7 @@ const start = () => {
     .getAttribute(`data-category`);
 
   handlerNavLink();
+  showMobileNav();
   showBasket();
 
   //загрузка бритвы и лезвия как main page
@@ -30,7 +31,7 @@ const start = () => {
 
 //addEventListener для линков
 const handlerNavLink = () => {
-  const link = document.querySelectorAll(`.header .nav .nav__link`);
+  const link = document.querySelectorAll(`.header .nav__link`);
   link.forEach((item) => item.addEventListener(`click`, showProducts));
 };
 
@@ -195,7 +196,7 @@ const handlerReview = (item) => {
   activeLink(`reviews`, `descriptions`);
 
   parent.innerHTML = `
-    <form name="commentForm ">
+    <form name="commentForm">
       <h2 class="commentForm__title">
         Отзывы:
       </h2>
@@ -216,10 +217,9 @@ const handlerReview = (item) => {
     <div class="appointment-form__btn">
         <button type="submit" class="btn btn--orange commentForm__btn" id="btnSend">Отправить</button>
     </div> 
-    <div class="container commentForm__comment">
     </div>
     `;
-  const parentCommit = document.querySelector(".commentForm__comment");
+  const parentCommit = document.querySelector(".comments");
 
   // добавление товара в корзину
   showComments(parentCommit, item);
@@ -262,26 +262,28 @@ const handlerPostSend = (parent, item, e) => {
 
     createElement({
       html: `
+      <div class="commentForm__comment">
         <p class="commentForm__commentItem">${email.value}</p>
         <p class="lead commentForm__commentItem">${text.value}</p>
         <p class="lead commentForm__commentItem">${time}</p>
+      </div>
     `,
       parent: parent,
     });
   }else{
     const element = createElement({
       html: `
+      <div class="commentForm__comment">
         <p class="commentForm__commentItem">${email.value}</p>
         <p class="lead commentForm__commentItem">${text.value}</p>
         <p class="lead commentForm__commentItem">${time}</p>
+      </div>
   `,
       // parent: parent,
     });
 
     parent.insertBefore(element, parent.firstChild)
   }
-
-
 
   sendRequest("http://localhost:3000/commit", {
     method: "POST",
@@ -305,9 +307,11 @@ const showComments = (parent, item) => {
 
       createElement({
         html: `
+              <div class="commentForm__comment">
                 <p class="commentForm__commentItem">${elem.email}</p>
                 <p class="lead commentForm__commentItem">${elem.texts}</p>
                 <p class="lead commentForm__commentItem">${elem.time}</p>
+              </div>  
            `,
         parent: parent,
       });

@@ -21,11 +21,6 @@ function showFilter() {
         getResource(selectedCategoryName)
             .then(dataArr => createFilter(dataArr, flexContainerElem));
     }))
-
-    // window.addEventListener("DOMContentLoaded", () => {
-    //     getResource(firstResponse)
-    //         .then(data => createFilter(data, flexContainerElem));
-    // });
 }
 
 function createFilter(category, parentElem) {
