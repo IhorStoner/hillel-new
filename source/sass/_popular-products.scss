@@ -41,13 +41,17 @@
         margin-bottom: 8px;
     }
 
-    // &__text {
-        
-    // }
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        // align-items: center;
+        flex-direction: column;
+        height: 45%;
+    }
 
     &__price {
-        margin-top: 15px;
-        margin-bottom: 25px;
+        margin-top: 3px;
+        margin-bottom: 3px;
         color: #FF7A00;
         font-weight: bold;
     }

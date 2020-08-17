@@ -52,3 +52,21 @@
         margin-bottom: 10px;
     }
 }
+
+@media(max-width: 752px) {
+    .productBasket {
+        &__btnDelete {
+            padding: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        &__item {
+            margin-bottom: 30px;
+            flex-direction: column;
+        }
+    }
+
+    .checkout {
+        margin-top: 30px;
+    }
+}

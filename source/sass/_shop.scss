@@ -233,9 +233,9 @@ $btn-to: 83px;
             margin: 0 auto;
         }
 
-        &__product {
-            margin: 0 auto;
-        }
+        // &__product {
+        //     margin: 0 auto;
+        // }
 
         &__search-container {
             width: 100%;
@@ -243,6 +243,15 @@ $btn-to: 83px;
 
         &__search-item {
             width: 78%;
+        }
+    }
+}
+
+
+@media (max-width: 585px) {
+    .shop {
+        &__product {
+            margin: 0 auto;
         }
     }
 }
@@ -260,6 +269,17 @@ $btn-to: 83px;
 
         &__search-btn {
             display: none;
+        }
+    }
+
+    .filters {
+
+        &__title {
+            padding-left: 5px;
+        }
+
+        &__item {
+            padding-left: 5px;
         }
     }
 }
